@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d335a03e3befcf8449a4912fd3689c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTimes: 0000000000000000000000000000000000000000000000000000000000000000
+  waitTimes: 0000000000000000030000000000000000000000080000000000000000000000
 --- !u!1 &811527473
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +373,7 @@ GameObject:
   - component: {fileID: 813951477}
   - component: {fileID: 813951476}
   - component: {fileID: 813951478}
+  - component: {fileID: 813951479}
   m_Layer: 0
   m_Name: Villager
   m_TagString: Untagged
@@ -420,7 +421,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 43ad51e043491b94d8f6c62d55ac5ede, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 716fe5f877b3de64bb1697242dddfeb2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -460,6 +461,25 @@ MonoBehaviour:
   speed: 3
   times: {fileID: 0}
   manager: {fileID: 811527474}
+--- !u!95 &813951479
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813951475}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dd4978fae303b2f40acd8792d39b1edc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1294797605
 GameObject:
   m_ObjectHideFlags: 0
