@@ -109,44 +109,18 @@ public class PlayerMovement : MonoBehaviour
     {
         mousePosition = Mouse.current.position.ReadValue();
         mousePosition.z = Camera.main.farClipPlane;
-        Vector3 worldPoint = Camera.main.ScreenToWorldPoint(mousePosition);
 
         GameObject arrow = Instantiate(arrowPrefab, spawnPositionVaccine.position, Quaternion.identity);
         arrow.transform.Rotate(0, 0,270.0f);
         
-        //Vector3 crossHairPosition = crossHair.transform.localPosition;
         Rigidbody2D player = arrow.GetComponent<Rigidbody2D>();
         player.velocity = screenCoords * ARROW_BASE_SPEED;
         arrow.transform.up = new Vector3(player.velocity.x, player.velocity.y, 0.0f);
-        //Rotate(0,0,Mathf.Atan2(screenCoords, crossHairPosition.x) * Mathf.Rad2Deg);
         Destroy(arrow, 3.0f);
     }
     
     void Aim()
     {
-        /*mousePosition = Mouse.current.position.ReadValue();
-        Debug.Log("mouse x:" + mousePosition.x + "y:" + mousePosition.y);
-        mousePosition.z = Camera.main.farClipPlane;
-        Vector3 worldPoint = Camera.main.ScreenToWorldPoint(mousePosition);
-        Debug.Log("world x:" + worldPoint.x + "y:" + worldPoint.y);
-        Vector2 aimDirection = new Vector2(worldPoint.x, worldPoint.y);
-        aimDirection = aimDirection + playerRB.position;
-        aimDirection.Normalize();
-        Debug.Log("aim x:" + aimDirection.x + "y:" + aimDirection.y);
-        crossHair.transform.localPosition = (aimDirection) * AIM_MAX_DISTANCE;*/
-        
-        //Vector2 pos = Camera.main.ScreenToViewportPoint(Mouse.current.position.ReadValue());
-        //pos.Normalize();
-        //crossHair.transform.localPosition = (pos) * AIM_MAX_DISTANCE;
-        
-        // Vector2 screenPosition = Mouse.current.position.ReadValue();
-        // Debug.Log("aim x:" + screenPosition.x + "y:" + screenPosition.y);
-        // Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
-        // //worldPosition.Normalize();
-        // //worldPosition = worldPosition.normalized;
-        // Vector2 direction = (worldPosition - playerRB.position).normalized;
-        // crossHair.transform.position = playerRB.position + direction * AIM_MAX_DISTANCE;
-        
         Vector2 pixelCoords = Mouse.current.position.ReadValue();
         float x = pixelCoords.x / Screen.width;
         float y = pixelCoords.y / Screen.height;
@@ -156,8 +130,5 @@ public class PlayerMovement : MonoBehaviour
         screenCoords.Normalize();
         
         crossHairUI.localPosition = screenCoords * AIM_MAX_DISTANCE;
-
-        //Vector3 projectedMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        //crossHair.transform.localPosition = (projectedMousePosition) * AIM_MAX_DISTANCE;
     }
 }
