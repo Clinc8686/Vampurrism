@@ -7,7 +7,10 @@ public class VampireMovement : MonoBehaviour
     // Start is called before the first frame update
     GameObject PlayerTarget;
     public float VampireSpeed=2f;
-
+    private Vector3 targetPos;
+    private Vector3 thisPos;
+    private float angle;
+    public float offset;
 
     void Start()
     {
@@ -17,8 +20,15 @@ public class VampireMovement : MonoBehaviour
     // Update is called once per frame
     void Update()  
     {
-        transform.LookAt(PlayerTarget.transform.position);
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, transform.eulerAngles.x*-1)); // roate z
+        targetPos = PlayerTarget.transform.position;
+        thisPos = transform.position;
+        targetPos.x = targetPos.x - thisPos.x;
+        targetPos.y = targetPos.y - thisPos.y;
+        angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + offset));
+
+
         transform.Translate(VampireSpeed * Time.deltaTime,0.0f, 0.0f );
+
     }
 }
