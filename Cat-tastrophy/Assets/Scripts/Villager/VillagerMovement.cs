@@ -13,6 +13,7 @@ public class VillagerMovement : MonoBehaviour
     private Vector3 _nextPoint;
     private int _pathIndex;
     private bool _waiting = false;
+    private bool _moving = true;
 
     // Start is called before the first frame update
     void Start()
@@ -24,16 +25,21 @@ public class VillagerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!_moving) { return; }
         transform.position = Vector2.MoveTowards(transform.position, _nextPoint, speed * Time.deltaTime);    
         if(this.transform.position == _nextPoint && !_waiting)
         {
             NextPoint();
         }
     }
+    
+    public void SetMoving(bool m)
+    {
+        _moving = m;
+    }
 
     private void NextPoint()
     {
-        Debug.Log("Next Point " + _pathIndex);
         _pathIndex++;
         if( _pathIndex >= _path.Length)
         {
@@ -41,7 +47,6 @@ public class VillagerMovement : MonoBehaviour
         }
         else
         {
-            Debug.Log("Starting coroutine");
             _waiting = true;
             StartCoroutine(WaitingAtPoint());
         }
@@ -49,11 +54,9 @@ public class VillagerMovement : MonoBehaviour
 
     IEnumerator WaitingAtPoint()
     {
-        Debug.Log("Waiting for " + _waitTimes[_pathIndex-1]);
         yield return new WaitForSeconds(_waitTimes[_pathIndex-1]);
         _nextPoint = _path[_pathIndex].transform.position;
         _waiting = false;
-        Debug.Log("Finished Waiting");
     }
 
     private void SetUpNewPath()
