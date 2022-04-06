@@ -19,6 +19,7 @@ public class PriestBlessing : MonoBehaviour
     private float _blessBarRectWidth;
     private float _blessBarReduction;
     private int _blessingInProgress = 0;
+    private bool _canBless = true;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,8 @@ public class PriestBlessing : MonoBehaviour
     }
 
     // Update is called once per frame
+    //Checks whether the priest is blessing or cooling down and
+    //starts the corresponding coroutine
     void Update()
     {
         if(_blessingInProgress == 2)
@@ -44,9 +47,15 @@ public class PriestBlessing : MonoBehaviour
         }
     }
 
+    public void SetCanBless(bool x)
+    {
+        _canBless = x;
+    }
+
+    //Sets the UI for blessing active and starts the blessing
     public void BlessWell()
     {
-        if(_blessingInProgress == 0)
+        if(_blessingInProgress == 0 && _canBless)
         {
             Debug.Log("Starting to bless..." + _blessInterval);
             _blessingInProgress = 1;
@@ -56,6 +65,7 @@ public class PriestBlessing : MonoBehaviour
         }
     }
 
+    //Lowers the progress bar in certain intervalls
     IEnumerator Blessing()
     {
         yield return new WaitForSeconds(_blessInterval);
@@ -68,6 +78,7 @@ public class PriestBlessing : MonoBehaviour
         blessingBarRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, temp - _blessBarReduction);
     }
 
+    //Raises the progress bar in certain intervalls
     IEnumerator CoolDownBlessing()
     {
         yield return new WaitForSeconds(_coolDownInterval);
@@ -81,6 +92,7 @@ public class PriestBlessing : MonoBehaviour
         blessingBarRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, temp + _blessBarReduction);
     }
 
+    //Blesses the well and starts the cooling down process
     private void FinishedBlessing()
     {
         Debug.Log("Finished blessing, starting cooldown");

@@ -9,26 +9,18 @@ public class Well : MonoBehaviour
     public int wellStaysBlessedTime = 5;
 
     private bool _isBlessed = false;
+    private bool _isFull = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Bless the well and start the coroutine to unbless it after a certain time
     public void BlessWell()
     {
+        if(!_isFull) { return; }
         _isBlessed = true;
         this.gameObject.GetComponent<SpriteRenderer>().sprite = blessedWell;
         StartCoroutine(WellBlessTime());
     }
 
+    //After a certain time the well automatically unblesses itself
     IEnumerator WellBlessTime()
     {
         yield return new WaitForSeconds(wellStaysBlessedTime);
@@ -36,14 +28,20 @@ public class Well : MonoBehaviour
         this.gameObject.GetComponent<SpriteRenderer>().sprite = normalWell;
     }
 
+    //Returns true if the well is blessed and unblesses it
     public bool GetBlessedWater()
     {
-        if (_isBlessed)
+        if (_isBlessed && _isFull)
         {
             _isBlessed = false;
             this.gameObject.GetComponent<SpriteRenderer>().sprite = normalWell;
             return true;
         }
         return false;
+    }
+
+    public void SetIsFull(bool x)
+    {
+        _isFull = x;
     }
 }
