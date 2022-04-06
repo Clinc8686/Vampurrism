@@ -9,14 +9,16 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 { 
     [SerializeField] private Rigidbody2D playerRB;
-    [SerializeField] private GameObject crossHair;
     [SerializeField] private GameObject arrowPrefab;
+    [SerializeField] private GameObject waterDropPrefab;
     [SerializeField] private Transform spawnPositionWater;
     [SerializeField] private Transform spawnPositionVaccine;
     [SerializeField] private RectTransform crossHairUI;
-    private float AIM_MAX_DISTANCE = 2.0f;
+    [SerializeField] private GameObject waterParticlesPrefab;
+    private float AIM_MAX_DISTANCE = 300.0f;
     private float PLAYER_SPEED = 7.0f;
-    private float ARROW_BASE_SPEED = 4.0f;
+    private float ARROW_BASE_SPEED = 8.0f;
+    private float WATER_BASE_SPEED = 3.0f;
     private Vector2 movementDirection;
     private Vector3 mousePosition;
     private Vector2 movementCoordinates;
@@ -64,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
         if (waterMunition > 0)
         {
             ShootWater();
-            waterMunition--; 
+            waterMunition--;
         }
     }
 
@@ -102,7 +104,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void ShootWater()
     {
-        
+        GameObject waterParticles = Instantiate(waterParticlesPrefab, spawnPositionWater.position, Quaternion.identity);
+        waterParticles.transform.Rotate(0, 0, 90);
+        waterParticles.transform.right = new Vector3((screenCoords.x*WATER_BASE_SPEED), (screenCoords.y*WATER_BASE_SPEED), 0.0f);
+        Destroy(waterParticles, 15.0f);
     }
 
     private void ShootVaccine()
@@ -111,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
         mousePosition.z = Camera.main.farClipPlane;
 
         GameObject arrow = Instantiate(arrowPrefab, spawnPositionVaccine.position, Quaternion.identity);
-        arrow.transform.Rotate(0, 0,270.0f);
+        arrow.transform.Rotate(0, 0,90);
         
         Rigidbody2D player = arrow.GetComponent<Rigidbody2D>();
         player.velocity = screenCoords * ARROW_BASE_SPEED;
