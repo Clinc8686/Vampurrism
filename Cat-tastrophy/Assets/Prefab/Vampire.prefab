@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 1592722007190137254}
   - component: {fileID: 1632626457598773655}
   - component: {fileID: 3014008960036920464}
+  - component: {fileID: 6294956027858675022}
   m_Layer: 0
   m_Name: Vampire
   m_TagString: Villager
@@ -215,7 +216,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.58, y: 0.79}
@@ -257,3 +258,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6294956027858675022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592722007190137260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 988e0fa8a807cc142aa4ce187e775a69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VillagerManager: {fileID: 3941537700754995975, guid: 0eb757bddb07cdb4bba96efcd9f7dbd6, type: 3}

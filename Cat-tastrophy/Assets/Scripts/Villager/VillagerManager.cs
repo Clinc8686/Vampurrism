@@ -50,16 +50,10 @@ public class VillagerManager : MonoBehaviour
         
     }
 
-    public void VillagerDied(int type)
+    public void VillagerDied()
     {
-        if (type == 0)
-        {
-            numberNormalVillagers--;
-        }
-        else if (type == 1)
-        {
-            numberImpfgegnerVillager--;
-        }
+
+        numberNormalVillagers--;
         villagerCounter.text = (numberImpfgegnerVillager + numberNormalVillagers).ToString();
     }
 
