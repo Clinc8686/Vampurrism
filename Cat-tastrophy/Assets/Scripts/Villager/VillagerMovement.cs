@@ -14,6 +14,8 @@ public class VillagerMovement : MonoBehaviour
     private int _pathIndex;
     private bool _waiting = false;
     private bool _moving = true;
+    private bool _direction = false;
+    private Vector2 _position, _lastPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +28,12 @@ public class VillagerMovement : MonoBehaviour
     void Update()
     {
         if(!_moving) { return; }
-        transform.position = Vector2.MoveTowards(transform.position, _nextPoint, speed * Time.deltaTime);    
-        if(this.transform.position == _nextPoint && !_waiting)
+        _lastPosition = transform.position;
+        transform.position = Vector2.MoveTowards(transform.position, _nextPoint, speed * Time.deltaTime); 
+        _position = transform.position;
+        _direction = (_position.x - _lastPosition.x > 0) ? true : false;
+        this.GetComponent<SpriteRenderer>().flipX = _direction;
+        if (this.transform.position == _nextPoint && !_waiting)
         {
             NextPoint();
         }
