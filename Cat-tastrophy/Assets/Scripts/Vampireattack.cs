@@ -5,6 +5,7 @@ using UnityEngine;
 public class Vampireattack : MonoBehaviour
 {
     GameObject villagermanager;
+    GameObject Vampiremanager;
     
 
     // Update is called once per frame
@@ -15,6 +16,7 @@ public class Vampireattack : MonoBehaviour
     private void Start()
     {
         villagermanager = GameObject.Find("VillagerManager");
+        Vampiremanager = GameObject.Find("EnemyManager");
     }
 
 
@@ -29,11 +31,16 @@ public class Vampireattack : MonoBehaviour
         if (collision.gameObject.tag == "Villager")
         {
             Debug.Log("turning a cat into a vampire muahahahah"); // 0 = normal, 1= impf
-            //collision.gameObject.AddComponent<VampireMovement>();
-            // collision.gameObject.AddComponent<Rigidbody2D>();
+            //Remove Villager
             collision.gameObject.SetActive(false);
             villagermanager.GetComponent<VillagerManager>().VillagerDied();
             Debug.Log(villagermanager.GetComponent<VillagerManager>().numberNormalVillagers);
+            //Add Vampire, 
+            //Fighting animation, 
+            //stand stilll for a sec
+
+            Vampiremanager.GetComponent<VampireManager>().numberVampires = +1;
+            Vampiremanager.GetComponent<VampireManager>().Addvampire(1,collision.gameObject.GetComponent<Transform>().position);
 
         }
 
