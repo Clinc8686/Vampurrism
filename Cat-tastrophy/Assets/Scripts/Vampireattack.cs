@@ -23,7 +23,7 @@ public class Vampireattack : MonoBehaviour
 
         }
 
-        if (collision.gameObject.tag == "StandartNpc")
+        if (collision.gameObject.tag == "Villager")
         {
             Debug.Log("turning a cat into a vampire muahahahah");
             collision.gameObject.AddComponent<VampireMovement>();
