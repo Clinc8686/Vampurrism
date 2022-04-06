@@ -45,6 +45,7 @@ public class VillagerImmunisation : MonoBehaviour
         if(_immune == 0)
         {
             _immune = 1;
+            tag = "immune";
         }
     }
 
@@ -58,6 +59,7 @@ public class VillagerImmunisation : MonoBehaviour
         immuneBar.SetActive(false);
         immuneArrow.SetActive(false);
         _immune = 0;
+        tag = "Villager";
     }
 
     private void GotGeimpft()
