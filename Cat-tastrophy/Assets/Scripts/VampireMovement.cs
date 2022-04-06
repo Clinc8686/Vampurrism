@@ -13,6 +13,8 @@ public class VampireMovement : MonoBehaviour
     public float offset;
     Rigidbody2D rb2d;
     public float minDistance;
+    public bool collidingWithPlayer=false;
+    public bool collidedWithNpc=false;
 
     // remove these Objects
 
@@ -36,10 +38,6 @@ public class VampireMovement : MonoBehaviour
                 SwitchedCat = false;
                 flipback(true);
             }
-
-            followPlayer();
-
-
         }
         else
         {
@@ -48,20 +46,45 @@ public class VampireMovement : MonoBehaviour
                 SwitchedCat = true;
                 flipback(false);
             }
+        }
+        if (collidingWithPlayer == false)
+        {
             followPlayer();
-
         }
 
     }
 
-   void followPlayer()
+    public IEnumerator Waitasecond(int seconds)
     {
+        yield return new WaitForSeconds(seconds);
+        collidedWithNpc = false;
+
         targetPos = Target.transform.position;
         thisPos = transform.position;
         targetPos.x = targetPos.x - thisPos.x;
         targetPos.y = targetPos.y - thisPos.y;
         angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + offset));
+    }
+
+    void followPlayer()
+    {
+        if(collidedWithNpc == true)
+        {
+            StartCoroutine(Waitasecond(4)); 
+
+        }
+
+        else
+        {
+                        targetPos = Target.transform.position;
+            thisPos = transform.position;
+            targetPos.x = targetPos.x - thisPos.x;
+            targetPos.y = targetPos.y - thisPos.y;
+            angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + offset));
+        }
+
 
 
     }

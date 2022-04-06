@@ -41,7 +41,7 @@ public class Vampireattack : MonoBehaviour
 
             Vampiremanager.GetComponent<VampireManager>().numberVampires = +1;
             Vampiremanager.GetComponent<VampireManager>().Addvampire(1,collision.gameObject.GetComponent<Transform>().position);
-
+            gameObject.GetComponent<VampireMovement>().collidedWithNpc = true;
         }
 
         if (collision.gameObject.tag == "immune")

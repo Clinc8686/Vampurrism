@@ -49,7 +49,7 @@ public class VampireManager : MonoBehaviour
         for (int i = 0; i < numberOfVampires; i++)
         {
             GameObject temp = Instantiate(Vampireprefab, new Vector3(0, 0, 0), Quaternion.identity, villagerParent.transform);
-
+            
         }
     }
     public void Addvampire(int numberOfVampires,Vector3 position)
@@ -57,7 +57,7 @@ public class VampireManager : MonoBehaviour
         for (int i = 0; i < numberOfVampires; i++)
         {
             GameObject temp = Instantiate(Vampireprefab, position, Quaternion.identity, villagerParent.transform);
-
+            numberVampires++;
         }
     }
 }

@@ -219,8 +219,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.58, y: 0.79}
-  m_Size: {x: 2.7424216, y: 2.7424216}
+  m_Offset: {x: -0.36, y: 0.79}
+  m_Size: {x: 2.42, y: 1.63}
   m_Direction: 0
 --- !u!114 &1632626457598773655
 MonoBehaviour:
@@ -237,6 +237,8 @@ MonoBehaviour:
   VampireSpeed: 2
   offset: 0
   minDistance: 0
+  collidingWithPlayer: 0
+  collidedWithNpc: 0
 --- !u!50 &3014008960036920464
 Rigidbody2D:
   serializedVersion: 4
@@ -270,4 +272,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988e0fa8a807cc142aa4ce187e775a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VillagerManager: {fileID: 3941537700754995975, guid: 0eb757bddb07cdb4bba96efcd9f7dbd6, type: 3}
