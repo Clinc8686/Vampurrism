@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 1592722007190137254}
   m_Layer: 0
   m_Name: NormalVillager
-  m_TagString: Untagged
+  m_TagString: Villager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -304,7 +304,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   times: {fileID: 0}
-  manager: {fileID: 0}
   villagerType: 0
 --- !u!114 &1592722007190137255
 MonoBehaviour:
@@ -322,7 +321,6 @@ MonoBehaviour:
   betterFood: {fileID: 9061052422422332316, guid: a4eeac89ec90c63419e3566dc75c3a7a, type: 3}
   dropTime: 10
   dropChance: 1
-  foodParent: {fileID: 0}
 --- !u!114 &1592722007190137253
 MonoBehaviour:
   m_ObjectHideFlags: 0

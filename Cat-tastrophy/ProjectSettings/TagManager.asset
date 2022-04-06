@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - WaterWell
+  - Villager
   layers:
   - Default
   - TransparentFX
