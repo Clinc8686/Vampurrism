@@ -23,6 +23,7 @@ public class VampireMovement : MonoBehaviour
         Target = GameObject.Find("Player");
 
         rb2d = GetComponent<Rigidbody2D>();
+        GetComponent<Rigidbody2D>().gravityScale=0;
     }
 
     // Update is called once per frame
