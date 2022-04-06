@@ -61,6 +61,10 @@ public class VillagerMovement : MonoBehaviour
         else
         {
             _waiting = true;
+            if(_waitTimes[_pathIndex-1] > 0)
+            {
+                this.GetComponent<Animator>().SetBool("Walking", false);
+            }
             StartCoroutine(WaitingAtPoint());
         }
     }
@@ -70,6 +74,7 @@ public class VillagerMovement : MonoBehaviour
         yield return new WaitForSeconds(_waitTimes[_pathIndex-1]);
         _nextPoint = _path[_pathIndex].transform.position;
         _waiting = false;
+        this.GetComponent<Animator>().SetBool("Walking", true);
     }
 
     private void SetUpNewPath()
