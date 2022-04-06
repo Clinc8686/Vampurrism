@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 1592722007190137254}
   m_Layer: 0
   m_Name: Impfgegner
-  m_TagString: Untagged
+  m_TagString: Villager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
