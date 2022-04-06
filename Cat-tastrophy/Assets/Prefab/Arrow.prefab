@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6931655319267031240}
   - component: {fileID: -6696420948695837162}
   - component: {fileID: 2867083389577533653}
+  - component: {fileID: 1506892332683498760}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -104,3 +105,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &1506892332683498760
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7261809945347697915}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.015341389, y: 0.40545374}
+      - {x: 0.0035234764, y: 0.41772687}
+      - {x: -0.0152788665, y: 0.42066428}
+      - {x: -0.035681367, y: 0.41386345}
+      - {x: -0.0407144, y: 0.28480977}
+      - {x: -0.1097724, y: 0.28147793}
+      - {x: -0.11545379, y: 0.06613656}
+      - {x: -0.117514096, y: -0.040188696}
+      - {x: -0.10081214, y: -0.0443389}
+      - {x: -0.1446586, y: -0.09903628}
+      - {x: -0.14568138, y: -0.14312445}
+      - {x: -0.13159032, y: -0.18931723}
+      - {x: -0.11596091, y: -0.2148752}
+      - {x: -0.08751809, y: -0.2193231}
+      - {x: -0.035754386, y: -0.18833274}
+      - {x: 0.00081643835, y: -0.20336066}
+      - {x: 0.03594215, y: -0.17492533}
+      - {x: 0.04436184, y: -0.11909671}
+      - {x: 0.092736475, y: -0.20562632}
+      - {x: 0.13545379, y: -0.22613655}
+      - {x: 0.14977242, y: -0.1676707}
+      - {x: 0.07636132, y: -0.043863438}
+      - {x: 0.08931722, y: 0.26073897}
+      - {x: 0.019673891, y: 0.2685585}
+      - {x: 0.01670412, y: 0.38693172}
