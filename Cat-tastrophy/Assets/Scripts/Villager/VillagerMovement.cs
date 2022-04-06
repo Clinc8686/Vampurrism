@@ -6,8 +6,10 @@ public class VillagerMovement : MonoBehaviour
 {
     public float speed = 3f;
     public WaitTimes times;
-    public VillagerManager manager;
+    //Type 0 = normal Villager, 1 = Impfgegner
+    public int villagerType = 0;
 
+    private VillagerManager _manager;
     private Transform[] _path;
     private int[] _waitTimes;
     private Vector3 _nextPoint;
@@ -44,6 +46,11 @@ public class VillagerMovement : MonoBehaviour
         _moving = m;
     }
 
+    public void SetVillagerManager(VillagerManager manager)
+    {
+        _manager = manager;
+    }
+
     private void NextPoint()
     {
         _pathIndex++;
@@ -67,7 +74,7 @@ public class VillagerMovement : MonoBehaviour
 
     private void SetUpNewPath()
     {
-        times = manager.GetNextPath(this.transform.position);
+        times = _manager.GetNextPath(this.transform.position);
         _waitTimes = times.waitTimes;
         _path = times.gameObject.GetComponentsInChildren<Transform>();
         _pathIndex = 1;

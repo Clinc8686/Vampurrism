@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class VillagerDropsFood : MonoBehaviour
 {
-    public GameObject food;
+    public GameObject normalFood;
+    public GameObject betterFood;
     public int dropTime = 10;
     public int dropChance = 20;
-    public GameObject foodParent;
-
+   
+    private GameObject _foodParent;
     private bool _canDrop = true;
+    private int type;
+
+    private void Start()
+    {
+        type = this.GetComponent<VillagerMovement>().villagerType;
+    }
 
     // Update is called once per frame
     void Update()
@@ -20,12 +27,18 @@ public class VillagerDropsFood : MonoBehaviour
             Debug.Log("Checking if to drop something " + i);
             if (i == dropChance)
             {
-                Instantiate(food, this.transform.position, Quaternion.identity, foodParent.transform);
+                GameObject toInstantiate = (type == 0 ? normalFood : betterFood);
+                Instantiate(toInstantiate, this.transform.position, Quaternion.identity, _foodParent.transform);
                 _canDrop = false;
                 Debug.Log("Dropped something, waiting until can drop again");
                 StartCoroutine(AllowDropFood());
             }
         }
+    }
+
+    public void SetFoodParent(GameObject parent)
+    {
+        _foodParent = parent;
     }
 
     IEnumerator AllowDropFood()
