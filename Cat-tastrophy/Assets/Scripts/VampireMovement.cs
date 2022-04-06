@@ -14,7 +14,7 @@ public class VampireMovement : MonoBehaviour
     Rigidbody2D rb2d;
     public float minDistance;
 
-
+    // remove these Objects
 
     bool SwitchedCat = false;
 
