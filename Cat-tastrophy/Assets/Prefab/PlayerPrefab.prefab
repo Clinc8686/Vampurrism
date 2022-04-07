@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 411774895516393705}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15, y: -0.78, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4701344132213597928}
@@ -46,10 +46,10 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.3}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 5.12, y: 5.12}
     newSize: {x: 5.12, y: 5.12}
     adaptiveTilingThreshold: 0.5
@@ -197,7 +197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 581341544546959212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.64, y: 1.27, z: 0}
+  m_LocalPosition: {x: -0.77, y: 0.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4701344132213597928}
@@ -341,7 +341,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4358777478764034937}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.87, y: -0.37, z: 0}
+  m_LocalPosition: {x: -2.04, y: -0.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4701344132213597928}
@@ -424,6 +424,19 @@ MonoBehaviour:
   crossHairUI: {fileID: 0}
   waterParticlesPrefab: {fileID: 6810433661182523954, guid: a3b0088b9caf4bd4cab8556a388441f4, type: 3}
   body: {fileID: 411774895516393705}
+  PlayerLifePrefab: {fileID: 0}
+  AIM_MAX_DISTANCE: 10
+  PLAYER_SPEED: 5
+  VACCINE_BASE_SPEED: 15
+  WATER_BASE_SPEED: 12
+  heart1: {fileID: 0}
+  heart2: {fileID: 0}
+  heart3: {fileID: 0}
+  heart4: {fileID: 0}
+  heart5: {fileID: 0}
+  heart6: {fileID: 0}
+  heart7: {fileID: 0}
+  UIPlayerLife: {fileID: 0}
 --- !u!114 &518529605637940611
 MonoBehaviour:
   m_ObjectHideFlags: 0
