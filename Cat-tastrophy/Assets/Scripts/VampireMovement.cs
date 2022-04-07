@@ -54,52 +54,48 @@ public class VampireMovement : MonoBehaviour
 
     }
 
-    public IEnumerator Waitasecond(int seconds)
-    {
-        yield return new WaitForSeconds(seconds);
+    public IEnumerator Waitasecond()
+    { 
+        Debug.Log("waiting");
+        yield return new WaitForSeconds(4);
         collidedWithNpc = false;
-
-        targetPos = Target.transform.position;
-        thisPos = transform.position;
-        targetPos.x = targetPos.x - thisPos.x;
-        targetPos.y = targetPos.y - thisPos.y;
-        angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + offset));
     }
 
     void followPlayer()
     {
         if(collidedWithNpc == true)
         {
-            StartCoroutine(Waitasecond(4)); 
-
+            StartCoroutine(Waitasecond());
+            Debug.Log("colllidedwithnpc=true");
         }
 
-        else
+        if(collidedWithNpc == false)
         {
-                        targetPos = Target.transform.position;
+             
+            
+            targetPos = Target.transform.position;
             thisPos = transform.position;
             targetPos.x = targetPos.x - thisPos.x;
             targetPos.y = targetPos.y - thisPos.y;
             angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + offset));
+
+            //Find direction
+            Vector3 dir = (Target.transform.position - rb2d.transform.position).normalized;
+            //Check if we need to follow object then do so 
+            if (Vector3.Distance(Target.transform.position, rb2d.transform.position) > minDistance)
+            {
+                rb2d.MovePosition(rb2d.transform.position + dir * VampireSpeed * Time.fixedDeltaTime);
+            }
+
+            Debug.Log("walkin");
         }
 
 
 
     }
 
-    void FixedUpdate()
-    {
 
-        //Find direction
-        Vector3 dir = (Target.transform.position - rb2d.transform.position).normalized;
-        //Check if we need to follow object then do so 
-        if (Vector3.Distance(Target.transform.position, rb2d.transform.position) > minDistance)
-        {
-            rb2d.MovePosition(rb2d.transform.position + dir * VampireSpeed * Time.fixedDeltaTime);
-        }
-    }
 
     void flipback(bool flipped)
     {

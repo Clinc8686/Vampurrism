@@ -22,9 +22,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float WATER_BASE_SPEED = 12.0f;
     private Vector2 movementDirection;
     private Vector2 movementCoordinates;
-    private int MAX_VACCINE_MUNITION = 10;
+    private int MAX_VACCINE_MUNITION = 15;
     private int vaccineMunition;
-    private int MAX_WATER_MUNITION = 10;
+    private int MAX_WATER_MUNITION = 40;
     private int waterMunition;
     private Vector2 screenCoords;
     private bool refill = false;
