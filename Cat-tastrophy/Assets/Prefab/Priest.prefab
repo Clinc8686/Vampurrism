@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3960957430490784206}
   - component: {fileID: 3960957430490784193}
   - component: {fileID: 3960957430490784192}
+  - component: {fileID: 1527390015690940121}
   m_Layer: 0
   m_Name: Well
-  m_TagString: Untagged
+  m_TagString: WaterWell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3960957430490784194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.11, y: 0.56, z: 0}
+  m_LocalPosition: {x: -6.31, y: 0.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3960957432507644365}
@@ -112,7 +113,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.04183495, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.3}
@@ -123,8 +124,24 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.9244235, y: 1}
   m_EdgeRadius: 0
+--- !u!70 &1527390015690940121
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3960957430490784194}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.18825482, y: 0.31280047}
+  m_Size: {x: 7.3791304, y: 5.203709}
+  m_Direction: 1
 --- !u!1 &3960957430671733230
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,9 +775,10 @@ GameObject:
   - component: {fileID: 3960957432507644367}
   - component: {fileID: 3960957432507644362}
   - component: {fileID: 3960957432507644363}
+  - component: {fileID: 5161187946565457178}
   m_Layer: 0
   m_Name: Priest
-  m_TagString: Untagged
+  m_TagString: Priest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -897,3 +915,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.7378187, y: 2.125882}
   m_EdgeRadius: 0
+--- !u!70 &5161187946565457178
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3960957432507644366}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0640254, y: 0.6708483}
+  m_Size: {x: 4.991949, y: 4.991949}
+  m_Direction: 0
