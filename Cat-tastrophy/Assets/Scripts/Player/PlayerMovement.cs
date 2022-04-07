@@ -15,23 +15,26 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private RectTransform crossHairUI;
     [SerializeField] private GameObject waterParticlesPrefab;
     [SerializeField] private GameObject body;
+    [SerializeField] private Transform PlayerLifePrefab;
     private Animator animator;
-    private float AIM_MAX_DISTANCE = 2.0f;
+    [SerializeField] private float AIM_MAX_DISTANCE = 10.0f;
     [SerializeField] private float PLAYER_SPEED = 5.0f;
     [SerializeField] private float VACCINE_BASE_SPEED = 15.0f;
     [SerializeField] private float WATER_BASE_SPEED = 12.0f;
     private Vector2 movementDirection;
     private Vector2 movementCoordinates;
-    private int MAX_VACCINE_MUNITION = 15;
+    private int MAX_VACCINE_MUNITION = 1000005;
     private int vaccineMunition;
     private int MAX_WATER_MUNITION = 40;
     private int waterMunition;
-    private Vector2 screenCoords;
+    private Vector2 mouseDirectionFromVaccinePosition;
+    private Vector2 mouseDirectionFromWaterPosition;
     private bool refill = false;
     private bool rebless = false;
     private bool pickUpFood = false;
     private bool rotated = false;
     private bool moving = false;
+    private int playerLife;
     private GameObject wellOrPriest;
 
     void Start()
@@ -39,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         animator = body.GetComponent<Animator>();
         vaccineMunition = MAX_VACCINE_MUNITION;
         waterMunition = MAX_WATER_MUNITION;
+        playerLife = 6;
     }
 
     private void LateUpdate()
@@ -173,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
     {
         GameObject waterParticles = Instantiate(waterParticlesPrefab, spawnPositionWater.position, Quaternion.identity);
         waterParticles.transform.Rotate(0, 0, 90);
-        waterParticles.transform.right = new Vector3((screenCoords.x*WATER_BASE_SPEED), (screenCoords.y*WATER_BASE_SPEED), 0.0f);
+        waterParticles.transform.right = new Vector3((mouseDirectionFromWaterPosition.x*WATER_BASE_SPEED), (mouseDirectionFromWaterPosition.y*WATER_BASE_SPEED), 0.0f);
         Destroy(waterParticles, 15.0f);
     }
 
@@ -183,20 +187,33 @@ public class PlayerMovement : MonoBehaviour
         arrow.transform.Rotate(0, 0,90);
         
         Rigidbody2D arrowRigidbody2D = arrow.GetComponent<Rigidbody2D>();
-        arrowRigidbody2D.velocity = screenCoords * VACCINE_BASE_SPEED;
+        arrowRigidbody2D.velocity = mouseDirectionFromVaccinePosition.normalized * VACCINE_BASE_SPEED;
         arrow.transform.up = new Vector3(arrowRigidbody2D.velocity.x, arrowRigidbody2D.velocity.y, 0.0f);
         Destroy(arrow, 3.0f);
     }
     
     void Aim()
     {
-        Vector2 pixelCoords = Mouse.current.position.ReadValue();
-        float x = pixelCoords.x / Screen.width;
-        float y = pixelCoords.y / Screen.height;
-        Vector2 scCoords = new Vector2(x, y);
-        screenCoords.x = (scCoords.x - 0.5f) * 2.0f;
-        screenCoords.y = (scCoords.y - 0.5f) * 2.0f;
-        screenCoords.Normalize();
-        crossHairUI.localPosition = screenCoords * AIM_MAX_DISTANCE;
+        Vector2 mousePosition = Mouse.current.position.ReadValue();
+        Vector2 positionInScreenSpace = Camera.main.WorldToScreenPoint(transform.position);
+        Vector2 mouseDirectionFromPosition = mousePosition - positionInScreenSpace;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        mouseDirectionFromVaccinePosition = mousePosition - (Vector2) spawnPositionVaccine.position;
+        mouseDirectionFromWaterPosition = mousePosition - (Vector2) spawnPositionWater.position;
+        //Debug.Log(mouseDirectionFromPosition.x + "  " + mouseDirectionFromPosition.y);
+        crossHairUI.anchoredPosition = positionInScreenSpace + mouseDirectionFromPosition.normalized * AIM_MAX_DISTANCE;
+        Debug.Log("position: " + positionInScreenSpace);
+        Debug.Log("direction: " + mouseDirectionFromPosition);
+    }
+
+    void resetLife()
+    {
+        
+        //Instantiate(PlayerLifePrefab, )
+    }
+
+    void changeLife()
+    {
+        
     }
 }

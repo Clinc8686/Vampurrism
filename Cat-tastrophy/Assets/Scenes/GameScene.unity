@@ -230,7 +230,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &30110893
 GameObject:
@@ -533,7 +533,7 @@ Transform:
   - {fileID: 361901841}
   - {fileID: 30110894}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &344285422
 PrefabInstance:
@@ -542,6 +542,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1191056932148931351, guid: 6333b09e60baf48428b4e5d5c58de40e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191056932148931351, guid: 6333b09e60baf48428b4e5d5c58de40e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191056932148931351, guid: 6333b09e60baf48428b4e5d5c58de40e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191056932148931351, guid: 6333b09e60baf48428b4e5d5c58de40e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191056932148931351, guid: 6333b09e60baf48428b4e5d5c58de40e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191056932148931351, guid: 6333b09e60baf48428b4e5d5c58de40e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 540
+      objectReference: {fileID: 0}
     - target: {fileID: 3021894906437937359, guid: 6333b09e60baf48428b4e5d5c58de40e, type: 3}
       propertyPath: m_Name
       value: CanvasPrefab
@@ -769,6 +793,10 @@ PrefabInstance:
       propertyPath: PLAYER_SPEED
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 5513059488409333563, guid: 8b3e79cfd36f8454f8361f76f8ae785c, type: 3}
+      propertyPath: VACCINE_BASE_SPEED
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7599021529997898329, guid: 8b3e79cfd36f8454f8361f76f8ae785c, type: 3}
       propertyPath: orthographic size
       value: 10
@@ -837,6 +865,10 @@ PrefabInstance:
     - target: {fileID: 3941537700754995975, guid: 0eb757bddb07cdb4bba96efcd9f7dbd6, type: 3}
       propertyPath: m_Name
       value: VillagerManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941537700754995975, guid: 0eb757bddb07cdb4bba96efcd9f7dbd6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eb757bddb07cdb4bba96efcd9f7dbd6, type: 3}
@@ -1004,6 +1036,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Priest
       objectReference: {fileID: 0}
+    - target: {fileID: 3960957432507644366, guid: 43dda7b318ba0b94e8d172102dfbbf78, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43dda7b318ba0b94e8d172102dfbbf78, type: 3}
 --- !u!1001 &1707914857
@@ -1060,6 +1096,10 @@ PrefabInstance:
     - target: {fileID: 3941537700754995975, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
       propertyPath: m_Name
       value: EnemyManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941537700754995975, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5825536439799397565, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
       propertyPath: numberVampires
