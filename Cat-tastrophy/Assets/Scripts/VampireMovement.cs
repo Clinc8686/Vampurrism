@@ -16,6 +16,9 @@ public class VampireMovement : MonoBehaviour
     public bool collidingWithPlayer=false;
     public bool collidedWithNpc=false;
 
+    private float catpause;
+    public int secondstowait=5;
+
     // remove these Objects
 
     bool SwitchedCat = false;
@@ -54,32 +57,38 @@ public class VampireMovement : MonoBehaviour
 
     }
 
-    public IEnumerator Waitasecond()
-    { 
-        Debug.Log("waiting");
-        yield return new WaitForSeconds(4);
-        collidedWithNpc = false;
-    }
+
 
     void followPlayer()
     {
-        if(collidedWithNpc == true)
+        if(collidedWithNpc == true && secondstowait <= catpause) //prepare the countdown, something collided.
         {
-            StartCoroutine(Waitasecond());
             Debug.Log("colllidedwithnpc=true");
+            catpause = 0;
+            secondstowait = 5;
         }
 
-        if(collidedWithNpc == false)
+        if(secondstowait>= catpause && collidedWithNpc == true) //do the countdown
+        {
+            catpause += Time.deltaTime;
+        }
+
+        if (secondstowait <= catpause && collidedWithNpc == true)
+        {
+            collidedWithNpc = false;
+        }
+
+        if (collidedWithNpc == false)
         {
              
-           /* 
+            
             targetPos = Target.transform.position;
             thisPos = transform.position;
             targetPos.x = targetPos.x - thisPos.x;
             targetPos.y = targetPos.y - thisPos.y;
             Debug.Log("rotating");
             angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + offset));*/
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + offset));
 
             //Find direction
             Vector3 dir = (Target.transform.position - rb2d.transform.position).normalized;
