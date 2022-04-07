@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 { 
@@ -10,12 +12,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private RectTransform crossHairUI;
     [SerializeField] private GameObject waterParticlesPrefab;
     [SerializeField] private GameObject body;
-    [SerializeField] private Transform PlayerLifePrefab;
     private Animator animator;
     [SerializeField] private float AIM_MAX_DISTANCE = 10.0f;
     [SerializeField] private float PLAYER_SPEED = 5.0f;
     [SerializeField] private float VACCINE_BASE_SPEED = 15.0f;
     [SerializeField] private float WATER_BASE_SPEED = 12.0f;
+    
+    [SerializeField] private Sprite heart1;
+    [SerializeField] private Sprite heart2;
+    [SerializeField] private Sprite heart3;
+    [SerializeField] private Sprite heart4;
+    [SerializeField] private Sprite heart5;
+    [SerializeField] private Sprite heart6;
+    [SerializeField] private Sprite heart7;
+    [SerializeField] private GameObject UIPlayerLife;
+    private SpriteRenderer lifeSpriteRenderer;
+    
     private Vector2 movementDirection;
     private Vector2 movementCoordinates;
     private int MAX_VACCINE_MUNITION = 1000005;
@@ -35,9 +47,11 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         animator = body.GetComponent<Animator>();
+        lifeSpriteRenderer = UIPlayerLife.GetComponent<SpriteRenderer>();
+        lifeSpriteRenderer.sprite = heart7;
         vaccineMunition = MAX_VACCINE_MUNITION;
         waterMunition = MAX_WATER_MUNITION;
-        playerLife = 6;
+        playerLife = 7;
     }
 
     private void LateUpdate()
@@ -165,6 +179,12 @@ public class PlayerMovement : MonoBehaviour
             int heal = wellOrPriest.GetComponent<Food>().GetRegenHealth();
             wellOrPriest.GetComponent<Food>().OnPickUpFood();
             wellOrPriest = null;
+            playerLife += heal;
+            changeLife();
+            if (playerLife > 6)
+            {
+                playerLife = 6;
+            }
         }
     }
 
@@ -200,12 +220,48 @@ public class PlayerMovement : MonoBehaviour
 
     void resetLife()
     {
-        
-        //Instantiate(PlayerLifePrefab, )
+        lifeSpriteRenderer.sprite = heart7;
+        playerLife = 6;
+    }
+
+    void damage()
+    {
+        playerLife--;
+        if (playerLife <= 0)
+        {
+            //gameover
+        }
+        else
+        {
+            changeLife();
+        }
     }
 
     void changeLife()
     {
-        
+        switch (playerLife)
+        {
+            case 1:
+                lifeSpriteRenderer.sprite = heart1;
+                break;
+            case 2:
+                lifeSpriteRenderer.sprite = heart2;
+                break;
+            case 3:
+                lifeSpriteRenderer.sprite = heart3;
+                break;
+            case 4:
+                lifeSpriteRenderer.sprite = heart4;
+                break;
+            case 5:
+                lifeSpriteRenderer.sprite = heart5;
+                break;
+            case 6:
+                lifeSpriteRenderer.sprite = heart6;
+                break;
+            case 7:
+                lifeSpriteRenderer.sprite = heart7;
+                break;
+        }
     }
 }
