@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Highscore", menuName = "ScriptableObjects/HighscoreScriptableObject", order = 1)]
