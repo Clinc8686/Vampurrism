@@ -230,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
         playerLife = 6;
     }
 
-    void damage()
+    public void damage()
     {
         playerLife--;
         if (playerLife <= 0)
