@@ -1,10 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.SceneManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 { 
@@ -200,10 +195,7 @@ public class PlayerMovement : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
         mouseDirectionFromVaccinePosition = mousePosition - (Vector2) spawnPositionVaccine.position;
         mouseDirectionFromWaterPosition = mousePosition - (Vector2) spawnPositionWater.position;
-        //Debug.Log(mouseDirectionFromPosition.x + "  " + mouseDirectionFromPosition.y);
         crossHairUI.anchoredPosition = positionInScreenSpace + mouseDirectionFromPosition.normalized * AIM_MAX_DISTANCE;
-        Debug.Log("position: " + positionInScreenSpace);
-        Debug.Log("direction: " + mouseDirectionFromPosition);
     }
 
     void resetLife()
