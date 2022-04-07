@@ -14,7 +14,7 @@ public class VampireMovement : MonoBehaviour
     Rigidbody2D rb2d;
     public float minDistance;
     public bool collidingWithPlayer=false;
-    public bool collidedWithNpc=false;
+    public bool collidedWithNpc=true; // starts standínd and follows afterwards
 
     private float catpause;
     public int secondstowait=5;

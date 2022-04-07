@@ -238,7 +238,8 @@ MonoBehaviour:
   offset: 0
   minDistance: 0
   collidingWithPlayer: 0
-  collidedWithNpc: 0
+  collidedWithNpc: 1
+  secondstowait: 0
 --- !u!50 &3014008960036920464
 Rigidbody2D:
   serializedVersion: 4
