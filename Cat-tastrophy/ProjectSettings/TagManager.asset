@@ -10,6 +10,7 @@ TagManager:
   - immune
   - Priest
   - Food
+  - Vaccine
   layers:
   - Default
   - TransparentFX

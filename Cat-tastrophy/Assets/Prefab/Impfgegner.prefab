@@ -336,7 +336,7 @@ MonoBehaviour:
   immuneBar: {fileID: 1592722008652749433}
   immuneArrow: {fileID: 1592722006854058766}
   immuneBarOffset: 37
-  immunityFailingRate: 1
+  immunityFailingRate: 5
 --- !u!70 &1592722007190137254
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
