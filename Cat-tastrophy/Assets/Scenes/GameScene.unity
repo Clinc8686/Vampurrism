@@ -765,6 +765,10 @@ PrefabInstance:
       propertyPath: crossHairUI
       value: 
       objectReference: {fileID: 344285423}
+    - target: {fileID: 5513059488409333563, guid: 8b3e79cfd36f8454f8361f76f8ae785c, type: 3}
+      propertyPath: PLAYER_SPEED
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7599021529997898329, guid: 8b3e79cfd36f8454f8361f76f8ae785c, type: 3}
       propertyPath: orthographic size
       value: 10
