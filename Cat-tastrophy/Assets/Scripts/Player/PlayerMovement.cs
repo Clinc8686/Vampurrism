@@ -25,8 +25,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movementCoordinates;
     private float AIM_MAX_DISTANCE = 200.0f;
     private float PLAYER_SPEED = 15.0f;
-    private float VACCINE_BASE_SPEED = 12.0f;
-    private float WATER_BASE_SPEED = 12.0f;
+    private float VACCINE_BASE_SPEED = 20.0f;
+    private float WATER_BASE_SPEED = 20.0f;
     private int MAX_VACCINE_MUNITION = 1000005;
     private int vaccineMunition;
     private int MAX_WATER_MUNITION = 40;
