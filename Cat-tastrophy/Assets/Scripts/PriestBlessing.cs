@@ -53,7 +53,7 @@ public class PriestBlessing : MonoBehaviour
     }
 
     //Sets the UI for blessing active and starts the blessing
-    public void BlessWell()
+    public bool BlessWell()
     {
         if(_blessingInProgress == 0 && _canBless)
         {
@@ -62,7 +62,9 @@ public class PriestBlessing : MonoBehaviour
             blessingBar.SetActive(true);
             blessingTextObject.text = blessingText;
             StartCoroutine(Blessing());
+            return true;
         }
+        return false;
     }
 
     //Lowers the progress bar in certain intervalls

@@ -9,6 +9,7 @@ TagManager:
   - StandartNpc
   - immune
   - Vaccine
+  - Priest
   layers:
   - Default
   - TransparentFX
