@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,7 +34,9 @@ public class PriestBlessing : MonoBehaviour
     //starts the corresponding coroutine
     void Update()
     {
-        if(_blessingInProgress == 2)
+        Vector3 priestPos = Camera.main.WorldToScreenPoint(this.transform.position);
+        blessingBar.transform.position = new Vector3(priestPos.x, priestPos.y + 50);
+        if (_blessingInProgress == 2)
         {
             _blessingInProgress = 1;
             StartCoroutine(Blessing());

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -46,6 +45,15 @@ public class VillagerImmunisation : MonoBehaviour
         {
             _immune = 1;
             tag = "immune";
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Vaccine")
+        {
+            SetGeimpft();
+            Destroy(collision.gameObject);
         }
     }
 
