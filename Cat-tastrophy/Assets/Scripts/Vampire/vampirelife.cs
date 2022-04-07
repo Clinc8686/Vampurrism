@@ -13,11 +13,13 @@ public class vampirelife : MonoBehaviour
 
     private bool instantdeath = true;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnParticleCollision(GameObject other)
     {
         //find lifes here
+        Debug.LogWarning("water shot");
 
-        if (collision.gameObject.tag == "Water")
+        if (other.gameObject.tag == "water")
         {
             if (instantdeath == false)
             {
@@ -40,12 +42,14 @@ public class vampirelife : MonoBehaviour
 
         }
 
-        if (collision.gameObject.tag == "cure")
+        
+
+        if (other.gameObject.tag == "cure")
         {
             Debug.Log("Villager raised from the undead");
             
 
-        }
+        }  
     }
 
      private void demage(int demage)
