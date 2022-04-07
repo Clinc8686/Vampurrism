@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: -6696420948695837162}
   - component: {fileID: 2867083389577533653}
   - component: {fileID: 1506892332683498760}
-  m_Layer: 0
-  m_Name: Arrow
+  m_Layer: 9
+  m_Name: VaccinePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,7 +115,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 { 
     [SerializeField] private Rigidbody2D playerRB;
-    [SerializeField] private GameObject arrowPrefab;
+    [SerializeField] private GameObject vaccinePrefab;
     [SerializeField] private Transform spawnPositionWater;
     [SerializeField] private Transform spawnPositionVaccine;
     [SerializeField] private RectTransform crossHairUI;
@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private float AIM_MAX_DISTANCE = 2.0f;
     private float PLAYER_SPEED = 5.0f;
-    private float ARROW_BASE_SPEED = 15.0f;
+    private float VACCINE_BASE_SPEED = 15.0f;
     private float WATER_BASE_SPEED = 12.0f;
     private Vector2 movementDirection;
     private Vector2 movementCoordinates;
@@ -148,15 +148,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void ShootVaccine()
     {
-        GameObject arrow = Instantiate(arrowPrefab, spawnPositionVaccine.position, Quaternion.identity);
+        GameObject arrow = Instantiate(vaccinePrefab, spawnPositionVaccine.position, Quaternion.identity);
         arrow.transform.Rotate(0, 0,90);
         
         //---
         Rigidbody2D arrowRigidbody2D = arrow.GetComponent<Rigidbody2D>();
-        arrowRigidbody2D.velocity = screenCoords * ARROW_BASE_SPEED;
+        arrowRigidbody2D.velocity = screenCoords * VACCINE_BASE_SPEED;
         arrow.transform.up = new Vector3(arrowRigidbody2D.velocity.x, arrowRigidbody2D.velocity.y, 0.0f);
         //Rigidbody2D player = arrow.GetComponent<Rigidbody2D>();
-        //player.velocity = screenCoords * ARROW_BASE_SPEED;
+        //player.velocity = screenCoords * VACCINE_BASE_SPEED;
         //arrow.transform.up = new Vector3(player.velocity.x, player.velocity.y, 0.0f);
         Destroy(arrow, 3.0f);
     }

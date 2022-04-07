@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 980144842}
   - component: {fileID: 980144844}
   - component: {fileID: 980144843}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,8 +442,9 @@ PolygonCollider2D:
       - {x: 0.5490589, y: 1.8124484}
       - {x: 0.067770764, y: 2.3580604}
       - {x: -0.30415994, y: 2.246063}
-      - {x: -0.73705447, y: 2.4824805}
-      - {x: -1.0470289, y: 2.2220225}
+      - {x: -0.57322526, y: 2.459487}
+      - {x: -0.5788975, y: 1.8352505}
+      - {x: -0.7078738, y: 1.8196352}
       - {x: -1.0014861, y: 1.8191383}
       - {x: -1.5242295, y: 1.8756837}
       - {x: -1.5525547, y: 1.4350423}
@@ -554,7 +555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1020375492}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnPositionVaccine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,7 +588,7 @@ GameObject:
   - component: {fileID: 1182012511}
   - component: {fileID: 1182012510}
   - component: {fileID: 1182012513}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WaterWell
   m_TagString: WaterWell
   m_Icon: {fileID: 0}
@@ -607,7 +608,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.034547806}
+  m_Offset: {x: 0, y: -0.010659218}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -618,7 +619,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.2206936}
+  m_Size: {x: 1, y: 0.9841404}
   m_EdgeRadius: 0
 --- !u!212 &1182012511
 SpriteRenderer:
@@ -698,7 +699,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.034548283, y: 0}
+  m_Offset: {x: 0.034548283, y: -0.005209923}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -709,7 +710,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.1976614, y: 1}
+  m_Size: {x: 2.1976614, y: 2.1097488}
   m_EdgeRadius: 0
 --- !u!1 &1426231575
 GameObject:
@@ -723,7 +724,7 @@ GameObject:
   - component: {fileID: 1426231579}
   - component: {fileID: 1426231577}
   - component: {fileID: 1426231576}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -773,7 +774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRB: {fileID: 1426231579}
-  arrowPrefab: {fileID: 7261809945347697915, guid: a3b2b6e6bf80f7048ae7d8d07b2f789b, type: 3}
+  vaccinePrefab: {fileID: 7261809945347697915, guid: a3b2b6e6bf80f7048ae7d8d07b2f789b, type: 3}
   spawnPositionWater: {fileID: 1671330989}
   spawnPositionVaccine: {fileID: 1020375492}
   crossHairUI: {fileID: 968559165}
@@ -827,7 +828,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1671330989}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnPositionWater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -859,7 +860,7 @@ GameObject:
   - component: {fileID: 1705438204}
   - component: {fileID: 1705438203}
   - component: {fileID: 1705438202}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

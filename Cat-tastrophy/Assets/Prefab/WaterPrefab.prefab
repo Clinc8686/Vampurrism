@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7562624596405162947}
   - component: {fileID: 8905303522468740985}
   - component: {fileID: 3301978066761232135}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WaterPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3675,7 +3675,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3783,7 +3783,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 823
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
