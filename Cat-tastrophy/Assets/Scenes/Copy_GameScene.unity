@@ -18952,7 +18952,7 @@ PrefabInstance:
     - target: {fileID: 5513059488409333563, guid: 8b3e79cfd36f8454f8361f76f8ae785c, type: 3}
       propertyPath: UIPlayerLife
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1916448560}
     - target: {fileID: 5513059488409333563, guid: 8b3e79cfd36f8454f8361f76f8ae785c, type: 3}
       propertyPath: VACCINE_BASE_SPEED
       value: 2
@@ -27785,6 +27785,11 @@ Transform:
   m_Father: {fileID: 38099982}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1916448560 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6880542023888218195, guid: 8b3e79cfd36f8454f8361f76f8ae785c, type: 3}
+  m_PrefabInstance: {fileID: 1345694859}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1922920976
 GameObject:
   m_ObjectHideFlags: 0
