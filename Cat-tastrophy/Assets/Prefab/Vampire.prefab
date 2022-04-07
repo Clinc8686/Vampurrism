@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 1632626457598773655}
   - component: {fileID: 3014008960036920464}
   - component: {fileID: 6294956027858675022}
+  - component: {fileID: -4107072920357301487}
   m_Layer: 0
   m_Name: Vampire
   m_TagString: Villager
@@ -238,7 +239,8 @@ MonoBehaviour:
   offset: 0
   minDistance: 0
   collidingWithPlayer: 0
-  collidedWithNpc: 0
+  collidedWithNpc: 1
+  secondstowait: 0
 --- !u!50 &3014008960036920464
 Rigidbody2D:
   serializedVersion: 4
@@ -272,3 +274,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988e0fa8a807cc142aa4ce187e775a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4107072920357301487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592722007190137260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4e099bfe221fc04b97fee4fefd47dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifepoints: 1

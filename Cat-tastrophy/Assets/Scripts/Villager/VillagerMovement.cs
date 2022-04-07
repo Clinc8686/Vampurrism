@@ -18,6 +18,12 @@ public class VillagerMovement : MonoBehaviour
     private bool _direction = false;
     private Vector2 _position, _lastPosition;
 
+    //Majas variables:
+    public bool collidedWithVampire= false;
+    public  int secondstowait = 5;
+    private float catpause;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,21 +58,48 @@ public class VillagerMovement : MonoBehaviour
 
     private void NextPoint()
     {
-        _pathIndex++;
-        if( _pathIndex >= _path.Length)
+
+        // Majas Code:
+        if (collidedWithVampire == true && secondstowait <= catpause) //prepare the countdown, something collided.
         {
-            SetUpNewPath();
+            Debug.Log("colllidedwithVampire=true");
+            catpause = 0;
+            secondstowait = 5;
         }
-        else
+
+        if (secondstowait >= catpause && collidedWithVampire == true) //do the countdown
         {
-            _waiting = true;
-            if(_waitTimes[_pathIndex-1] > 0)
+            catpause += Time.deltaTime;
+        }
+
+        if (secondstowait <= catpause && collidedWithVampire == true) // after the countdown
+        {
+            collidedWithVampire = false;
+        }
+        //untill here
+
+        if(collidedWithVampire == false)
+        {
+            _pathIndex++;
+            if( _pathIndex >= _path.Length)
             {
-                this.GetComponent<Animator>().SetBool("Walking", false);
+                SetUpNewPath();
             }
-            StartCoroutine(WaitingAtPoint());
+            else
+            {
+                _waiting = true;
+                if(_waitTimes[_pathIndex-1] > 0)
+                {
+                    this.GetComponent<Animator>().SetBool("Walking", false);
+                }
+                StartCoroutine(WaitingAtPoint());
+            }
+
         }
+
     }
+
+
 
     IEnumerator WaitingAtPoint()
     {
