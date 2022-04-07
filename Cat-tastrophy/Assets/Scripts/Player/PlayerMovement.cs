@@ -11,16 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private RectTransform crossHairUI;
     [SerializeField] private GameObject waterParticlesPrefab;
     [SerializeField] private GameObject body;
-    [SerializeField] private Sprite heart1;
-    [SerializeField] private Sprite heart2;
-    [SerializeField] private Sprite heart3;
-    [SerializeField] private Sprite heart4;
-    [SerializeField] private Sprite heart5;
-    [SerializeField] private Sprite heart6;
-    [SerializeField] private Sprite heart7;
-    [SerializeField] private GameObject UIPlayerLife;
     private Animator animator;
-    private Image lifeSpriteImage;
     private Vector2 movementDirection;
     private Vector2 movementCoordinates;
     private float AIM_MAX_DISTANCE = 200.0f;
@@ -39,17 +30,14 @@ public class PlayerMovement : MonoBehaviour
     private bool rotated = false;
     private bool moving = false;
     private bool shooting = false;
-    private int playerLife;
     private GameObject wellOrPriest;
-
+    PlayerUI playerUI;
     void Start()
     {
         animator = body.GetComponent<Animator>();
-        lifeSpriteImage = UIPlayerLife.GetComponent<Image>();
-        lifeSpriteImage.sprite = heart7;
+        playerUI = GameObject.FindGameObjectWithTag("PlayerUI").GetComponent<PlayerUI>();
         vaccineMunition = MAX_VACCINE_MUNITION;
         waterMunition = MAX_WATER_MUNITION;
-        playerLife = 6;
     }
 
     private void LateUpdate()
@@ -182,12 +170,7 @@ public class PlayerMovement : MonoBehaviour
             int heal = wellOrPriest.GetComponent<Food>().GetRegenHealth();
             wellOrPriest.GetComponent<Food>().OnPickUpFood();
             wellOrPriest = null;
-            playerLife += heal;
-            changeLife();
-            if (playerLife > 6)
-            {
-                playerLife = 6;
-            }
+            playerUI.addLife(heal);
         }
     }
 
@@ -222,52 +205,5 @@ public class PlayerMovement : MonoBehaviour
         mouseDirectionFromVaccinePosition = mousePosition - (Vector2) spawnPositionVaccine.position;
         mouseDirectionFromWaterPosition = mousePosition - (Vector2) spawnPositionWater.position;
         crossHairUI.anchoredPosition = positionInScreenSpace + mouseDirectionFromPosition.normalized * AIM_MAX_DISTANCE;
-    }
-
-    void resetLife()
-    {
-        lifeSpriteImage.sprite = heart7;
-        playerLife = 6;
-    }
-
-    public void damage()
-    {
-        playerLife--;
-        if (playerLife <= 0)
-        {
-            //gameover
-        }
-        else
-        {
-            changeLife();
-        }
-    }
-
-    void changeLife()
-    {
-        switch (playerLife)
-        {
-            case 1:
-                lifeSpriteImage.sprite = heart1;
-                break;
-            case 2:
-                lifeSpriteImage.sprite = heart2;
-                break;
-            case 3:
-                lifeSpriteImage.sprite = heart3;
-                break;
-            case 4:
-                lifeSpriteImage.sprite = heart4;
-                break;
-            case 5:
-                lifeSpriteImage.sprite = heart5;
-                break;
-            case 6:
-                lifeSpriteImage.sprite = heart6;
-                break;
-            case 7:
-                lifeSpriteImage.sprite = heart7;
-                break;
-        }
     }
 }
