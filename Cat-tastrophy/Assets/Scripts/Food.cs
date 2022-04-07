@@ -6,9 +6,13 @@ public class Food : MonoBehaviour
 {
     public int _regeneratedHealth = 1;
 
-    public int OnPickUpFood()
+    public void OnPickUpFood()
     {
-        Destroy(this.gameObject, 1);
+        Destroy(this.gameObject);
+    }
+
+    public int GetRegenHealth()
+    {
         return _regeneratedHealth;
     }
 }

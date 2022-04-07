@@ -8,6 +8,8 @@ TagManager:
   - Villager
   - StandartNpc
   - immune
+  - Priest
+  - Food
   layers:
   - Default
   - TransparentFX

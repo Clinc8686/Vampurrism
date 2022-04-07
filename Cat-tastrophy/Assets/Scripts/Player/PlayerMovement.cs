@@ -28,8 +28,11 @@ public class PlayerMovement : MonoBehaviour
     private int waterMunition;
     private Vector2 screenCoords;
     private bool refill = false;
+    private bool rebless = false;
+    private bool pickUpFood = false;
     private bool rotated = false;
     private bool moving = false;
+    private GameObject wellOrPriest;
 
     void Start()
     {
@@ -111,6 +114,17 @@ public class PlayerMovement : MonoBehaviour
         if (col.CompareTag("WaterWell"))
         {
             refill = true;
+            wellOrPriest = col.gameObject;
+        }
+        else if(col.CompareTag("Priest"))
+        {
+            rebless = true;
+            wellOrPriest = col.gameObject;
+        }
+        else if (col.CompareTag("Food"))
+        {
+            pickUpFood = true;
+            wellOrPriest = col.gameObject;
         }
     }
 
@@ -119,6 +133,17 @@ public class PlayerMovement : MonoBehaviour
         if (col.CompareTag("WaterWell"))
         {
             refill = false;
+            wellOrPriest = null;
+        }
+        else if (col.CompareTag("Priest"))
+        {
+            rebless = false;
+            wellOrPriest = null;
+        }
+        else if (col.CompareTag("Priest"))
+        {
+            pickUpFood = false;
+            wellOrPriest = null;
         }
     }
 
@@ -126,15 +151,21 @@ public class PlayerMovement : MonoBehaviour
     {
         if (refill)
         {
-            if (waterMunition < 10)
-            {
-                waterMunition = 10;
-                
-            }
-            if (vaccineMunition < 10)
-            {
-                vaccineMunition = 10;
-            }
+            bool canRefill = wellOrPriest.GetComponent<Well>().GetBlessedWater();
+            if(!canRefill) { return; }
+            waterMunition = 10;
+            vaccineMunition = 10;
+        }
+        else if (rebless)
+        {
+            wellOrPriest.GetComponent<PriestBlessing>().BlessWell();
+        }
+        else if (pickUpFood)
+        {
+            //TO DO!!! Regenerated health from food, add to current health
+            int heal = wellOrPriest.GetComponent<Food>().GetRegenHealth();
+            wellOrPriest.GetComponent<Food>().OnPickUpFood();
+            wellOrPriest = null;
         }
     }
 
@@ -165,9 +196,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 scCoords = new Vector2(x, y);
         screenCoords.x = (scCoords.x - 0.5f) * 2.0f;
         screenCoords.y = (scCoords.y - 0.5f) * 2.0f;
-        Debug.Log("vorher x:" + screenCoords.x + " y:" + screenCoords.y);
         screenCoords.Normalize();
-        Debug.Log("nachher x:" + screenCoords.x + " y:" + screenCoords.y);
         crossHairUI.localPosition = screenCoords * AIM_MAX_DISTANCE;
     }
 }
