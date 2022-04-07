@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 screenCoords;
     private bool refill = false;
     private bool rebless = false;
+    private bool pickUpFood = false;
     private bool rotated = false;
     private bool moving = false;
     private GameObject wellOrPriest;
@@ -120,6 +121,11 @@ public class PlayerMovement : MonoBehaviour
             rebless = true;
             wellOrPriest = col.gameObject;
         }
+        else if (col.CompareTag("Food"))
+        {
+            pickUpFood = true;
+            wellOrPriest = col.gameObject;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D col)
@@ -132,6 +138,11 @@ public class PlayerMovement : MonoBehaviour
         else if (col.CompareTag("Priest"))
         {
             rebless = false;
+            wellOrPriest = null;
+        }
+        else if (col.CompareTag("Priest"))
+        {
+            pickUpFood = false;
             wellOrPriest = null;
         }
     }
@@ -148,6 +159,13 @@ public class PlayerMovement : MonoBehaviour
         else if (rebless)
         {
             wellOrPriest.GetComponent<PriestBlessing>().BlessWell();
+        }
+        else if (pickUpFood)
+        {
+            //TO DO!!! Regenerated health from food, add to current health
+            int heal = wellOrPriest.GetComponent<Food>().GetRegenHealth();
+            wellOrPriest.GetComponent<Food>().OnPickUpFood();
+            wellOrPriest = null;
         }
     }
 
