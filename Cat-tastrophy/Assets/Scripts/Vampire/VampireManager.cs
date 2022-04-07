@@ -58,6 +58,8 @@ public class VampireManager : MonoBehaviour
         {
             GameObject temp = Instantiate(Vampireprefab, position, Quaternion.identity, villagerParent.transform);
             numberVampires++;
+            Vampirecounter.text = (numberVampires).ToString();
+            Debug.Log(numberVampires);
         }
     }
 }
