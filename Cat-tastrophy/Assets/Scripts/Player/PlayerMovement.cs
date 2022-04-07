@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 { 
@@ -10,14 +11,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private RectTransform crossHairUI;
     [SerializeField] private GameObject waterParticlesPrefab;
     [SerializeField] private GameObject body;
-    [SerializeField] private Transform PlayerLifePrefab;
+    [SerializeField] private Sprite heart1;
+    [SerializeField] private Sprite heart2;
+    [SerializeField] private Sprite heart3;
+    [SerializeField] private Sprite heart4;
+    [SerializeField] private Sprite heart5;
+    [SerializeField] private Sprite heart6;
+    [SerializeField] private Sprite heart7;
+    [SerializeField] private GameObject UIPlayerLife;
     private Animator animator;
-    [SerializeField] private float AIM_MAX_DISTANCE = 10.0f;
-    [SerializeField] private float PLAYER_SPEED = 5.0f;
-    [SerializeField] private float VACCINE_BASE_SPEED = 15.0f;
-    [SerializeField] private float WATER_BASE_SPEED = 12.0f;
+    private Image lifeSpriteImage;
     private Vector2 movementDirection;
     private Vector2 movementCoordinates;
+    private float AIM_MAX_DISTANCE = 200.0f;
+    private float PLAYER_SPEED = 15.0f;
+    private float VACCINE_BASE_SPEED = 12.0f;
+    private float WATER_BASE_SPEED = 12.0f;
     private int MAX_VACCINE_MUNITION = 1000005;
     private int vaccineMunition;
     private int MAX_WATER_MUNITION = 40;
@@ -35,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         animator = body.GetComponent<Animator>();
+        lifeSpriteImage = UIPlayerLife.GetComponent<Image>();
+        lifeSpriteImage.sprite = heart7;
         vaccineMunition = MAX_VACCINE_MUNITION;
         waterMunition = MAX_WATER_MUNITION;
         playerLife = 6;
@@ -165,6 +176,12 @@ public class PlayerMovement : MonoBehaviour
             int heal = wellOrPriest.GetComponent<Food>().GetRegenHealth();
             wellOrPriest.GetComponent<Food>().OnPickUpFood();
             wellOrPriest = null;
+            playerLife += heal;
+            changeLife();
+            if (playerLife > 6)
+            {
+                playerLife = 6;
+            }
         }
     }
 
@@ -184,7 +201,7 @@ public class PlayerMovement : MonoBehaviour
         Rigidbody2D arrowRigidbody2D = arrow.GetComponent<Rigidbody2D>();
         arrowRigidbody2D.velocity = mouseDirectionFromVaccinePosition.normalized * VACCINE_BASE_SPEED;
         arrow.transform.up = new Vector3(arrowRigidbody2D.velocity.x, arrowRigidbody2D.velocity.y, 0.0f);
-        Destroy(arrow, 3.0f);
+        Destroy(arrow, 15.0f);
     }
     
     void Aim()
@@ -195,20 +212,53 @@ public class PlayerMovement : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
         mouseDirectionFromVaccinePosition = mousePosition - (Vector2) spawnPositionVaccine.position;
         mouseDirectionFromWaterPosition = mousePosition - (Vector2) spawnPositionWater.position;
-        //Debug.Log(mouseDirectionFromPosition.x + "  " + mouseDirectionFromPosition.y);
         crossHairUI.anchoredPosition = positionInScreenSpace + mouseDirectionFromPosition.normalized * AIM_MAX_DISTANCE;
-        Debug.Log("position: " + positionInScreenSpace);
-        Debug.Log("direction: " + mouseDirectionFromPosition);
     }
 
     void resetLife()
     {
-        
-        //Instantiate(PlayerLifePrefab, )
+        lifeSpriteImage.sprite = heart7;
+        playerLife = 6;
+    }
+
+    void damage()
+    {
+        playerLife--;
+        if (playerLife <= 0)
+        {
+            //gameover
+        }
+        else
+        {
+            changeLife();
+        }
     }
 
     void changeLife()
     {
-        
+        switch (playerLife)
+        {
+            case 1:
+                lifeSpriteImage.sprite = heart1;
+                break;
+            case 2:
+                lifeSpriteImage.sprite = heart2;
+                break;
+            case 3:
+                lifeSpriteImage.sprite = heart3;
+                break;
+            case 4:
+                lifeSpriteImage.sprite = heart4;
+                break;
+            case 5:
+                lifeSpriteImage.sprite = heart5;
+                break;
+            case 6:
+                lifeSpriteImage.sprite = heart6;
+                break;
+            case 7:
+                lifeSpriteImage.sprite = heart7;
+                break;
+        }
     }
 }
