@@ -23,6 +23,7 @@ public class VampireMovement : MonoBehaviour
 
     void Start()
     {
+        this.GetComponent<Animator>().SetBool("Walking", true);
         Target = GameObject.Find("Player");
 
         rb2d = GetComponent<Rigidbody2D>();
