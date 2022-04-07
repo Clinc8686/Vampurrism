@@ -54,15 +54,6 @@ public class VillagerImmunisation : MonoBehaviour
         return _immune;
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Vaccine")
-        {
-            SetGeimpft();
-            Destroy(collision.gameObject);
-        }
-    }
-
     private void ImmunityFailed()
     {
         immuneBar.SetActive(false);

@@ -72,13 +72,14 @@ public class VampireMovement : MonoBehaviour
         if(collidedWithNpc == false)
         {
              
-            
+           /* 
             targetPos = Target.transform.position;
             thisPos = transform.position;
             targetPos.x = targetPos.x - thisPos.x;
             targetPos.y = targetPos.y - thisPos.y;
+            Debug.Log("rotating");
             angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + offset));
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + offset));*/
 
             //Find direction
             Vector3 dir = (Target.transform.position - rb2d.transform.position).normalized;

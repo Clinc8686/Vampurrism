@@ -8,8 +8,6 @@ TagManager:
   - Villager
   - StandartNpc
   - immune
-  - Vaccine
-  - Priest
   layers:
   - Default
   - TransparentFX
