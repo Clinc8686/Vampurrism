@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private float WATER_BASE_SPEED = 20.0f;
     private int MAX_VACCINE_MUNITION = 1000005;
     private int vaccineMunition;
-    private int MAX_WATER_MUNITION = 40;
+    private int MAX_WATER_MUNITION = 1000005;
     private int waterMunition;
     private Vector2 mouseDirectionFromVaccinePosition;
     private Vector2 mouseDirectionFromWaterPosition;
@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private bool pickUpFood = false;
     private bool rotated = false;
     private bool moving = false;
+    private bool shooting = false;
     private int playerLife;
     private GameObject wellOrPriest;
 
@@ -75,6 +76,11 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("Walking", false);
+        }
+
+        if (shooting)
+        {
+            
         }
     }
 
@@ -187,6 +193,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void ShootWater()
     {
+        animator.SetTrigger("Shooting");
         GameObject waterParticles = Instantiate(waterParticlesPrefab, spawnPositionWater.position, Quaternion.identity);
         waterParticles.transform.Rotate(0, 0, 90);
         waterParticles.transform.right = new Vector3((mouseDirectionFromWaterPosition.x*WATER_BASE_SPEED), (mouseDirectionFromWaterPosition.y*WATER_BASE_SPEED), 0.0f);
@@ -195,6 +202,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void ShootVaccine()
     {
+        animator.SetTrigger("Shooting");
+
         GameObject arrow = Instantiate(vaccinePrefab, spawnPositionVaccine.position, Quaternion.identity);
         arrow.transform.Rotate(0, 0,90);
         
