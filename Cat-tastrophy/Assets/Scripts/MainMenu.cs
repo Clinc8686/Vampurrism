@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject highScoreScreen;
     public GameObject creditsScreen;
-    public string gameSceneName;
+    public int[] gameSceneNames;
     public Highscore highScore;
     public Text scoreToAdd;
 
@@ -45,7 +45,8 @@ public class MainMenu : MonoBehaviour
     //Start a new game when clicked on "Spiel starten"
     public void OnStartClicked()
     {
-        SceneManager.LoadScene(gameSceneName, LoadSceneMode.Single);
+        int i = Random.Range(1, gameSceneNames.Length+1);
+        SceneManager.LoadScene(i, LoadSceneMode.Single);
     }
 
     //Show the Highscore List when clicked on "Highscore"
