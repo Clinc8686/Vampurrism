@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facingRight: 0
-  VampireSpeed: 2
+  VampireSpeed: 5
   offset: 0
   minDistance: 0
   collidingWithPlayer: 0
