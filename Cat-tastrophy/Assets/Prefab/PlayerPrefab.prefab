@@ -552,6 +552,7 @@ GameObject:
   - component: {fileID: 4701344132213597928}
   - component: {fileID: 2432734824276256992}
   - component: {fileID: 5513059488409333563}
+  - component: {fileID: 8297380211462286218}
   - component: {fileID: 518529605637940611}
   m_Layer: 7
   m_Name: Player
@@ -612,12 +613,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRB: {fileID: 2432734824276256992}
+  body: {fileID: 411774895516393705}
+  animator: {fileID: 2272380818298692851}
+--- !u!114 &8297380211462286218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6617391534042958890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6f94e3260341348ba2b4aa39ee4f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   vaccinePrefab: {fileID: 7261809945347697915, guid: a3b2b6e6bf80f7048ae7d8d07b2f789b, type: 3}
   spawnPositionWater: {fileID: 2522729671780920557}
   spawnPositionVaccine: {fileID: 6614678494011203867}
-  crossHairUI: {fileID: 361742108009725796}
   waterParticlesPrefab: {fileID: 6810433661182523954, guid: a3b0088b9caf4bd4cab8556a388441f4, type: 3}
-  body: {fileID: 411774895516393705}
+  crossHairUI: {fileID: 361742108009725796}
+  mouseDirectionFromVaccinePosition: {x: 0, y: 0}
+  mouseDirectionFromWaterPosition: {x: 0, y: 0}
 --- !u!114 &518529605637940611
 MonoBehaviour:
   m_ObjectHideFlags: 0

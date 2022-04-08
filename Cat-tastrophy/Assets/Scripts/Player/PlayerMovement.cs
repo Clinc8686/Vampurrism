@@ -5,44 +5,30 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 { 
     [SerializeField] private Rigidbody2D playerRB;
-    [SerializeField] private GameObject vaccinePrefab;
-    [SerializeField] private Transform spawnPositionWater;
-    [SerializeField] private Transform spawnPositionVaccine;
-    [SerializeField] private RectTransform crossHairUI;
-    [SerializeField] private GameObject waterParticlesPrefab;
     [SerializeField] private GameObject body;
-    private Animator animator;
+    public Animator animator;
     private Vector2 movementDirection;
     private Vector2 movementCoordinates;
-    private float AIM_MAX_DISTANCE = 200.0f;
     private float PLAYER_SPEED = 15.0f;
-    private float VACCINE_BASE_SPEED = 20.0f;
-    private float WATER_BASE_SPEED = 20.0f;
     private int MAX_VACCINE_MUNITION = 1000005;
     private int vaccineMunition;
     private int MAX_WATER_MUNITION = 1000005;
     private int waterMunition;
-    private Vector2 mouseDirectionFromVaccinePosition;
-    private Vector2 mouseDirectionFromWaterPosition;
     private bool refill = false;
     private bool rebless = false;
     private bool pickUpFood = false;
     private bool rotated = false;
     private bool moving = false;
-    private bool shooting = false;
     private GameObject wellOrPriest;
-    PlayerUI playerUI;
+    private PlayerUI playerUI;
+    private PlayerShooting playerShooting;
     void Start()
     {
         animator = body.GetComponent<Animator>();
         playerUI = GameObject.FindGameObjectWithTag("PlayerUI").GetComponent<PlayerUI>();
+        playerShooting = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShooting>();
         vaccineMunition = MAX_VACCINE_MUNITION;
         waterMunition = MAX_WATER_MUNITION;
-    }
-
-    private void LateUpdate()
-    {
-        Aim();
     }
 
     void FixedUpdate()
@@ -64,11 +50,6 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("Walking", false);
-        }
-
-        if (shooting)
-        {
-            
         }
     }
 
@@ -99,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (vaccineMunition > 0)
         {
-            ShootVaccine();
+            playerShooting.ShootVaccine();
             vaccineMunition--;
         }
     }
@@ -108,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (waterMunition > 0)
         {
-            ShootWater();
+            playerShooting.ShootWater();
             waterMunition--;
         }
     }
@@ -174,36 +155,5 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void ShootWater()
-    {
-        animator.SetTrigger("Shooting");
-        GameObject waterParticles = Instantiate(waterParticlesPrefab, spawnPositionWater.position, Quaternion.identity);
-        waterParticles.transform.Rotate(0, 0, 90);
-        waterParticles.transform.right = new Vector3((mouseDirectionFromWaterPosition.x*WATER_BASE_SPEED), (mouseDirectionFromWaterPosition.y*WATER_BASE_SPEED), 0.0f);
-        Destroy(waterParticles, 15.0f);
-    }
 
-    private void ShootVaccine()
-    {
-        animator.SetTrigger("Shooting");
-
-        GameObject arrow = Instantiate(vaccinePrefab, spawnPositionVaccine.position, Quaternion.identity);
-        arrow.transform.Rotate(0, 0,90);
-        
-        Rigidbody2D arrowRigidbody2D = arrow.GetComponent<Rigidbody2D>();
-        arrowRigidbody2D.velocity = mouseDirectionFromVaccinePosition.normalized * VACCINE_BASE_SPEED;
-        arrow.transform.up = new Vector3(arrowRigidbody2D.velocity.x, arrowRigidbody2D.velocity.y, 0.0f);
-        Destroy(arrow, 15.0f);
-    }
-    
-    void Aim()
-    {
-        Vector2 mousePosition = Mouse.current.position.ReadValue();
-        Vector2 positionInScreenSpace = Camera.main.WorldToScreenPoint(transform.position);
-        Vector2 mouseDirectionFromPosition = mousePosition - positionInScreenSpace;
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        mouseDirectionFromVaccinePosition = mousePosition - (Vector2) spawnPositionVaccine.position;
-        mouseDirectionFromWaterPosition = mousePosition - (Vector2) spawnPositionWater.position;
-        crossHairUI.anchoredPosition = positionInScreenSpace + mouseDirectionFromPosition.normalized * AIM_MAX_DISTANCE;
-    }
 }
