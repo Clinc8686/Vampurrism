@@ -166,7 +166,7 @@ public class PlayerMovement : MonoBehaviour
         {
             bool canRefill = well.GetComponent<Well>().GetBlessedWater();
             if(!canRefill) { return; }
-            waterMunition = 10;
+            waterMunition = MAX_WATER_MUNITION;
             playerVaccineUI.ResetVaccine();
         }
         else if (rebless)

@@ -32,16 +32,16 @@ public class VampireManager : MonoBehaviour
         //Villager instantiieren
         Addvampire(numberVampires);
 
-        Vampirecounter.text = (numberVampires).ToString(); 
+        Vampirecounter.text = (_numberVampiresKilled).ToString(); 
     }
 
 
     public void VampireDied()
     {
         numberVampires--;
-        Vampirecounter.text = (numberVampires).ToString();
-        Addvampire(1);
         _numberVampiresKilled++;
+        Vampirecounter.text = (_numberVampiresKilled).ToString();
+        Addvampire(1);
     }
 
     public int GetNumberVampiresKilled()
@@ -70,7 +70,7 @@ public class VampireManager : MonoBehaviour
         {
             GameObject temp = Instantiate(Vampireprefab, position, Quaternion.identity, villagerParent.transform);
             numberVampires++;
-            Vampirecounter.text = (numberVampires).ToString();
+            Vampirecounter.text = (_numberVampiresKilled).ToString();
             Debug.Log(numberVampires);
         }
     }
