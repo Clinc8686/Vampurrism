@@ -35,7 +35,7 @@ public class PriestBlessing : MonoBehaviour
     void Update()
     {
         Vector3 priestPos = Camera.main.WorldToScreenPoint(this.transform.position);
-        blessingBar.transform.position = new Vector3(priestPos.x, priestPos.y + 50);
+        blessingBar.transform.position = new Vector3(priestPos.x, priestPos.y);
         if (_blessingInProgress == 2)
         {
             _blessingInProgress = 1;

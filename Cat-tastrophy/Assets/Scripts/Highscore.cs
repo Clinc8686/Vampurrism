@@ -8,9 +8,9 @@ public class Highscore : ScriptableObject
     //Adds a new score but only, if its higher than the 10th score
     //Inserts the new score in the correct place and removes the last
     //now invalid score from the list
-    public void AddScore(int score)
+    public int AddScore(int score)
     {
-        if(score <= scoreList[scoreList.Length - 1]) { return; }
+        if(score <= scoreList[scoreList.Length - 1]) { return -1; }
         int place = 0;
         for(int i = 0; i < scoreList.Length; i++)
         {
@@ -26,5 +26,6 @@ public class Highscore : ScriptableObject
             scoreList[i] = score;
             score = temp;
         }
+        return place;
     }
 }

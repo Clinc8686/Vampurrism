@@ -11,6 +11,7 @@ public class PlayerLifeUI : MonoBehaviour
     [SerializeField] private Sprite heart6;
     [SerializeField] private Sprite heart7;
     [SerializeField] private GameObject UIPlayerLife;
+    public GameOver gameOver;
     private Image lifeSpriteImage;
     private int playerLife;
     private int MAX_PLAYER_LIFE = 7;
@@ -44,7 +45,7 @@ public class PlayerLifeUI : MonoBehaviour
         {
             playerLife = 0;
             changeLife();
-            //gameover
+            gameOver.LostGame(true);
             return false;
         }
         else

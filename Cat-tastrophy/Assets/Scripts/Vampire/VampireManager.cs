@@ -11,6 +11,7 @@ public class VampireManager : MonoBehaviour
     private GameObject[] spawnpoints;
     private Vector3[] _startingPoints;
     private Vector3 thisStartingpoint;
+    private int _numberVampiresKilled = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,12 @@ public class VampireManager : MonoBehaviour
     {
         numberVampires--;
         Vampirecounter.text = (numberVampires).ToString();
+        _numberVampiresKilled++;
+    }
+
+    public int GetNumberVampiresKilled()
+    {
+        return _numberVampiresKilled;
     }
 
     private void GetRandomStartPoint()

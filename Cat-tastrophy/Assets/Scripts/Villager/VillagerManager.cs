@@ -11,6 +11,7 @@ public class VillagerManager : MonoBehaviour
     public GameObject foodParent;
     public int numberNormalVillagers = 5;
     public int numberImpfgegnerVillager = 1;
+    public GameOver gameOver;
 
     private WaitTimes[] _paths;
     private Vector3[] _startingPoints;
@@ -51,9 +52,12 @@ public class VillagerManager : MonoBehaviour
 
     public void VillagerDied()
     {
-
         numberNormalVillagers--;
         villagerCounter.text = (numberImpfgegnerVillager + numberNormalVillagers).ToString();
+        if(numberNormalVillagers <= 0)
+        {
+            gameOver.LostGame(false);
+        }
     }
 
     public void VampireTurnedBack(Vector3 position)

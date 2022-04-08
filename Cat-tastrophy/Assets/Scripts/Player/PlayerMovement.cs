@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
         animator = body.GetComponent<Animator>();
         waterMunition = MAX_WATER_MUNITION;
+        foodList = new List<GameObject>();
     }
 
     void FixedUpdate()
