@@ -11,8 +11,16 @@ public class vampirelife : MonoBehaviour
     bool washit;
     private int lifes=1;
 
-    private bool instantdeath = true;
+    private int secondstowait =5;
+    private float catpause = 0;
+    float colora=255;
 
+    private SpriteRenderer colorkeeper;
+
+    private void Start()
+    {
+        colorkeeper = GetComponent<SpriteRenderer>();
+    }
 
     private void OnParticleCollision(GameObject other)
     {
@@ -21,28 +29,9 @@ public class vampirelife : MonoBehaviour
 
         if (other.gameObject.tag == "water")
         {
-            if (instantdeath == false)
-            {
-
-                if (cooldownseconds >= counting && washit == true) //do the countdown
-                {
-                    counting += Time.deltaTime;
-                }
-                if (cooldownseconds <= counting && washit == true)
-                {
-                    demage(1);
-                    counting = 0;
-                }
-            }
-            if (instantdeath == true)
-            {
-                demage(1);
-            }
-
+            demage(1);
 
         }
-
-        
 
         if (other.gameObject.tag == "cure")
         {
@@ -52,10 +41,55 @@ public class vampirelife : MonoBehaviour
         }  
     }
 
-     private void demage(int demage)
-     {
+    private void Update()
+    {
+        if (lifes <= 0)
+        {
+            fadeToBlack();
+        }
+
+    }
+
+    private void demage(int demage)
+    {
         lifes--;
-        gameObject.SetActive(false);
-        GameObject.Find("EnemyManager").GetComponent<VampireManager>().VampireDied();
-     }
+        if (lifes <= 0)
+        {
+            GameObject.Find("EnemyManager").GetComponent<VampireManager>().VampireDied();
+            this.GetComponent<Animator>().SetBool("dying", true);
+            gameObject.GetComponent<VampireMovement>().collidedWithNpc = true;
+        }
+
+    }
+
+    private void fadeToBlack()
+    {
+        if (secondstowait <= catpause) //prepare the countdown, something collided.
+        {
+            //Debug.Log("colllidedwithnpc=true");
+            catpause = 0;
+            colora = 255;
+
+        }
+
+        if (secondstowait >= catpause) //do the countdown
+        {
+            Color tempcolor = colorkeeper.material.color;
+            
+            catpause += Time.deltaTime;
+            colora = colora- 50f*Time.deltaTime;
+
+            tempcolor.a = colora;
+
+
+            colorkeeper.material.color= tempcolor;
+           // colorkeeper.color = new Color(1, 200, 39, 255);
+        }
+
+        if (secondstowait <= catpause)
+        {
+            gameObject.SetActive(false);
+        }
+
+    }
 }
