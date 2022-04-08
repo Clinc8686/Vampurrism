@@ -116,7 +116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1592722006854058765
 Transform:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: -3726061047077449068, guid: 2c04cbccbfe71d74d958bc5bff00a361, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   immuneBar: {fileID: 1592722008652749433}
   immuneArrow: {fileID: 1592722006854058766}
-  immuneBarOffset: 37
+  immuneBarOffset: -50
   immunityFailingRate: 1
   notImmuneText: {fileID: 0}
   rejectImmunityTime: 5
