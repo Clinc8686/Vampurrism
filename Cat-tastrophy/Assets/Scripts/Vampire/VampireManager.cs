@@ -20,8 +20,10 @@ public class VampireManager : MonoBehaviour
         _startingPoints = new Vector3[spawnpoints.Length];
         for (int i = 0; i < spawnpoints.Length; i++)
         {
-            Transform[] pathPoints = spawnpoints[i].GetComponentsInChildren<Transform>();
-            _startingPoints[i] = pathPoints[1].transform.position;
+            Vector3 meow = spawnpoints[i].GetComponent<Transform>().position;
+          //  Transform[] pathPoints = spawnpoints[i].GetComponentsInChildren<Transform>();
+          //  Transform pathpoint = pathPoints[i];
+            _startingPoints[i] = meow;
         }
 
 

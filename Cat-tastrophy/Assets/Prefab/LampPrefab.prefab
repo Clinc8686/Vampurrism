@@ -29,7 +29,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 5, y: -11.5, z: 279.00143}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6755482113189560611}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -97,7 +98,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.90055084, y: -0.13599968}
+  m_Offset: {x: -0.90055084, y: -0.12748957}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -108,7 +109,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.83615875, y: 6.6872063}
+  m_Size: {x: 0.83615875, y: 6.7042265}
   m_EdgeRadius: 0
 --- !u!61 &6060849340638076707
 BoxCollider2D:
@@ -123,7 +124,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.55050874, y: 1.6863861}
+  m_Offset: {x: 0.55050874, y: 1.6783042}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -134,5 +135,75 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.0684094, y: 3.0968323}
+  m_Size: {x: 2.0684094, y: 3.0806684}
   m_EdgeRadius: 0
+--- !u!1001 &9164186926342103163
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6060849340638076709}
+    m_Modifications:
+    - target: {fileID: 2516931941698969944, guid: 4760a7d80cde24649b84f7ce99cf073b, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516931941698969944, guid: 4760a7d80cde24649b84f7ce99cf073b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516931941698969944, guid: 4760a7d80cde24649b84f7ce99cf073b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516931941698969944, guid: 4760a7d80cde24649b84f7ce99cf073b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516931941698969944, guid: 4760a7d80cde24649b84f7ce99cf073b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516931941698969944, guid: 4760a7d80cde24649b84f7ce99cf073b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516931941698969944, guid: 4760a7d80cde24649b84f7ce99cf073b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516931941698969944, guid: 4760a7d80cde24649b84f7ce99cf073b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516931941698969944, guid: 4760a7d80cde24649b84f7ce99cf073b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516931941698969944, guid: 4760a7d80cde24649b84f7ce99cf073b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516931941698969944, guid: 4760a7d80cde24649b84f7ce99cf073b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3516124654992606351, guid: 4760a7d80cde24649b84f7ce99cf073b, type: 3}
+      propertyPath: m_Name
+      value: LampLightPrefab 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751732810007638089, guid: 4760a7d80cde24649b84f7ce99cf073b, type: 3}
+      propertyPath: m_PointLightInnerAngle
+      value: 158
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751732810007638089, guid: 4760a7d80cde24649b84f7ce99cf073b, type: 3}
+      propertyPath: m_PointLightOuterAngle
+      value: 217
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4760a7d80cde24649b84f7ce99cf073b, type: 3}
+--- !u!4 &6755482113189560611 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2516931941698969944, guid: 4760a7d80cde24649b84f7ce99cf073b, type: 3}
+  m_PrefabInstance: {fileID: 9164186926342103163}
+  m_PrefabAsset: {fileID: 0}
