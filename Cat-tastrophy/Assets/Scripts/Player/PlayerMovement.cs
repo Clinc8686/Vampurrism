@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,7 +9,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerVaccineUI playerVaccineUI;
     [SerializeField] private PlayerLifeUI playerLifeUI;
     [SerializeField] private PlayerShooting playerShooting;
-    private GameObject wellOrPriest;
+    private GameObject well;
+    private List<GameObject> foodList;
+    private GameObject priest;
+    private int foodEnterCounter = 0;
     private Vector2 movementDirection;
     private Vector2 movementCoordinates;
     private float PLAYER_SPEED = 15.0f;
@@ -94,17 +98,21 @@ public class PlayerMovement : MonoBehaviour
         if (col.CompareTag("WaterWell"))
         {
             refill = true;
-            wellOrPriest = col.gameObject;
+            well = col.gameObject;
         }
         else if(col.CompareTag("Priest"))
         {
             rebless = true;
-            wellOrPriest = col.gameObject;
+            priest = col.gameObject;
         }
         else if (col.CompareTag("Food"))
         {
             pickUpFood = true;
-            wellOrPriest = col.gameObject;
+            if(!foodList.Contains(col.gameObject))
+            {
+                foodList.Add(col.gameObject);
+            }
+            foodEnterCounter++;
         }
         
         if (col.gameObject.tag == "Enemy")
@@ -119,17 +127,20 @@ public class PlayerMovement : MonoBehaviour
         if (col.CompareTag("WaterWell"))
         {
             refill = false;
-            wellOrPriest = null;
+            well = null;
         }
         else if (col.CompareTag("Priest"))
         {
             rebless = false;
-            wellOrPriest = null;
+            priest = null;
         }
-        else if (col.CompareTag("Priest"))
+        else if (col.CompareTag("Food"))
         {
-            pickUpFood = false;
-            wellOrPriest = null;
+            foodList.Remove(col.gameObject);
+            if(foodList.Count <= 0)
+            {
+                pickUpFood = false;
+            }
         }
     }
 
@@ -137,21 +148,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (refill)
         {
-            bool canRefill = wellOrPriest.GetComponent<Well>().GetBlessedWater();
+            bool canRefill = well.GetComponent<Well>().GetBlessedWater();
             if(!canRefill) { return; }
             waterMunition = 10;
             playerVaccineUI.resetVaccine();
         }
         else if (rebless)
         {
-            wellOrPriest.GetComponent<PriestBlessing>().BlessWell();
+            priest.GetComponent<PriestBlessing>().BlessWell();
         }
         else if (pickUpFood)
         {
-            //TO DO!!! Regenerated health from food, add to current health
-            int heal = wellOrPriest.GetComponent<Food>().GetRegenHealth();
-            wellOrPriest.GetComponent<Food>().OnPickUpFood();
-            wellOrPriest = null;
+            int heal = foodList[0].GetComponent<Food>().GetRegenHealth();
+            foodList[0].GetComponent<Food>().OnPickUpFood();
             playerLifeUI.addLife(heal);
         }
     }
