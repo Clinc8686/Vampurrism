@@ -6,7 +6,8 @@ public class VampireManager : MonoBehaviour
     public GameObject Vampireprefab;
     public Text Vampirecounter;
     public GameObject villagerParent;
-    public int numberVampires = 5;
+    public int numberVampires = 20;
+    public int maxNumberVampires = 20;
 
     private GameObject[] spawnpoints;
     private Vector3[] _startingPoints;
@@ -34,10 +35,12 @@ public class VampireManager : MonoBehaviour
         Vampirecounter.text = (numberVampires).ToString(); 
     }
 
+
     public void VampireDied()
     {
         numberVampires--;
         Vampirecounter.text = (numberVampires).ToString();
+        Addvampire(1);
         _numberVampiresKilled++;
     }
 
