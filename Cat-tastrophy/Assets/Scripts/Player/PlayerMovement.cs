@@ -106,6 +106,12 @@ public class PlayerMovement : MonoBehaviour
             pickUpFood = true;
             wellOrPriest = col.gameObject;
         }
+        
+        if (col.gameObject.tag == "Enemy")
+        {
+            Debug.Log("demage");
+            playerLifeUI.lostLife();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D col)
