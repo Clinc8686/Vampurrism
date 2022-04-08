@@ -12,6 +12,8 @@ TagManager:
   - Food
   - Vaccine
   - water
+  - PlayerUI
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -23,7 +25,7 @@ TagManager:
   - Player
   - Interaction
   - Projectiles
-  - 
+  - Enemy
   - 
   - 
   - 
