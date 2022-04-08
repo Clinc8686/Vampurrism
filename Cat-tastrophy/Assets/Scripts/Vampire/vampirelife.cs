@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class vampirelife : MonoBehaviour
 {
@@ -13,13 +14,14 @@ public class vampirelife : MonoBehaviour
 
     private int secondstowait =5;
     private float catpause = 0;
-    float colora=255;
 
-    private SpriteRenderer colorkeeper;
+    private Transform thisvampire;
+    private float scaleme=1;
+
 
     private void Start()
     {
-        colorkeeper = GetComponent<SpriteRenderer>();
+        thisvampire = GetComponent<Transform>();
     }
 
     private void OnParticleCollision(GameObject other)
@@ -57,7 +59,9 @@ public class vampirelife : MonoBehaviour
         {
             GameObject.Find("EnemyManager").GetComponent<VampireManager>().VampireDied();
             this.GetComponent<Animator>().SetBool("dying", true);
-            gameObject.GetComponent<VampireMovement>().collidedWithNpc = true;
+           // gameObject.GetComponent<VampireMovement>().collidedWithNpc = true;
+            gameObject.GetComponent<VampireMovement>().enabled = false;
+
         }
 
     }
@@ -66,29 +70,25 @@ public class vampirelife : MonoBehaviour
     {
         if (secondstowait <= catpause) //prepare the countdown, something collided.
         {
-            //Debug.Log("colllidedwithnpc=true");
             catpause = 0;
-            colora = 255;
-
+            scaleme = 1;
         }
 
         if (secondstowait >= catpause) //do the countdown
         {
-            Color tempcolor = colorkeeper.material.color;
-            
+            if(catpause>1 && scaleme > 0)
+            {
+               scaleme= scaleme - 0.4f * Time.deltaTime;
+            }
             catpause += Time.deltaTime;
-            colora = colora- 50f*Time.deltaTime;
 
-            tempcolor.a = colora;
-
-
-            colorkeeper.material.color= tempcolor;
-           // colorkeeper.color = new Color(1, 200, 39, 255);
+            thisvampire.localScale = new Vector3(scaleme, scaleme, scaleme);
         }
 
         if (secondstowait <= catpause)
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            Destroy(gameObject);
         }
 
     }
