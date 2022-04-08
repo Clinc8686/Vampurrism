@@ -23,13 +23,11 @@ public class VillagerDropsFood : MonoBehaviour
         if (_canDrop)
         {
             int i = Random.Range(0, dropChance + 1);
-            Debug.Log("Checking if to drop something " + i);
             if (i == dropChance)
             {
                 GameObject toInstantiate = (type == 0 ? normalFood : betterFood);
                 Instantiate(toInstantiate, this.transform.position, Quaternion.identity, _foodParent.transform);
                 _canDrop = false;
-                Debug.Log("Dropped something, waiting until can drop again");
                 StartCoroutine(AllowDropFood());
             }
         }
@@ -44,6 +42,5 @@ public class VillagerDropsFood : MonoBehaviour
     {
         yield return new WaitForSeconds(dropTime);
         _canDrop = true;
-        Debug.Log("Can drop again");
     }
 }
