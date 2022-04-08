@@ -13,7 +13,7 @@ public class VampireMovement : MonoBehaviour
     Rigidbody2D rb2d;
     public float minDistance;
     public bool collidingWithPlayer=false;
-    public bool collidedWithNpc=true; // starts standínd and follows afterwards
+    public bool collidedWithNpc=true; // starts standï¿½nd and follows afterwards
 
     private float catpause;
     public int secondstowait=5;
@@ -63,7 +63,7 @@ public class VampireMovement : MonoBehaviour
     {
         if(collidedWithNpc == true && secondstowait <= catpause) //prepare the countdown, something collided.
         {
-            Debug.Log("colllidedwithnpc=true");
+            //Debug.Log("colllidedwithnpc=true");
             catpause = 0;
             secondstowait = 5;
         }
@@ -113,7 +113,7 @@ public class VampireMovement : MonoBehaviour
                 rb2d.MovePosition(rb2d.transform.position + dir * VampireSpeed * Time.fixedDeltaTime);
             }
 
-            Debug.Log("walkin");
+            //Debug.Log("walkin");
         }
 
 

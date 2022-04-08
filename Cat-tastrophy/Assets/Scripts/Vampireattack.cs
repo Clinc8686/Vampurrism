@@ -4,7 +4,7 @@ public class Vampireattack : MonoBehaviour
 {
     GameObject villagermanager;
     GameObject Vampiremanager;
-    //PlayerLifeUI playerLifeUI;  //Von Mario
+    PlayerLifeUI playerLifeUI;  //Von Mario
     bool collidedWithNpc = false;
     float catpause = 0;
     private Vector3 npcPos;
@@ -25,13 +25,6 @@ public class Vampireattack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log("demage");
-            //playerLifeUI = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLifeUI>(); //Von Mario
-            //playerLifeUI.lostLife();    //Von Mario
-        }
-
         if (collision.gameObject.tag == "Villager"&& collidedWithNpc == false)
         {
             Debug.Log("turning a cat into a vampire muahahahah"); // 0 = normal, 1= impf
