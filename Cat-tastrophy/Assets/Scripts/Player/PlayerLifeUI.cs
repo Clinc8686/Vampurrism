@@ -36,6 +36,14 @@ public class PlayerLifeUI : MonoBehaviour
         {
             playerLife = MAX_PLAYER_LIFE;
         }
+        else if(playerLife + value > MAX_PLAYER_LIFE)
+        {
+            playerLife = MAX_PLAYER_LIFE;
+        }
+        else
+        {
+            playerLife += value;
+        }
         ChangeLife();
     }
     public bool LostLife()
