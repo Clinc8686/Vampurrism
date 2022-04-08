@@ -8,10 +8,10 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private Transform spawnPositionVaccine;
     [SerializeField] private GameObject waterParticlesPrefab;
     [SerializeField] private RectTransform crossHairUI;
+    [SerializeField] private PlayerMovement playerMovement;
     private float AIM_MAX_DISTANCE = 200.0f;
     private float VACCINE_BASE_SPEED = 20.0f;
     private float WATER_BASE_SPEED = 20.0f;
-    [SerializeField] private PlayerMovement playerMovement;
     public Vector2 mouseDirectionFromVaccinePosition;
     public Vector2 mouseDirectionFromWaterPosition;
 

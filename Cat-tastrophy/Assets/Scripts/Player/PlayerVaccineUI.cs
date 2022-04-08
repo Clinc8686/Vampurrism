@@ -26,6 +26,7 @@ public class PlayerVaccineUI : MonoBehaviour
 
     public void resetVaccine()
     {
+        vaccineSpriteImage.enabled = true;
         vaccineSpriteImage.sprite = vaccine10;
         playerVaccine = MAX_PLAYER_VACCINE;
     }
@@ -40,15 +41,16 @@ public class PlayerVaccineUI : MonoBehaviour
     }
     public bool lostVaccine()
     {
-        
-        if (playerVaccine <= 1)
+        playerVaccine--;
+        if (playerVaccine <= 0)
         {
+            playerVaccine = 0;
             //no vaccine
+            changeVaccine();
             return false;
         }
         else
         {
-            playerVaccine--;
             changeVaccine();
             return true;
         }
@@ -58,6 +60,9 @@ public class PlayerVaccineUI : MonoBehaviour
     {
         switch (playerVaccine)
         {
+            case 0:
+                vaccineSpriteImage.enabled = false;
+                break;
             case 1:
                 vaccineSpriteImage.sprite = vaccine1;
                 break;

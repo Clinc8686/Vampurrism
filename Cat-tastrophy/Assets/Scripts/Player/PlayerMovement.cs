@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject body;
     [SerializeField] private PlayerVaccineUI playerVaccineUI;
     [SerializeField] private PlayerLifeUI playerLifeUI;
-    public Animator animator;
+    [SerializeField] private PlayerShooting playerShooting;
+    private GameObject wellOrPriest;
     private Vector2 movementDirection;
     private Vector2 movementCoordinates;
     private float PLAYER_SPEED = 15.0f;
@@ -18,8 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private bool pickUpFood = false;
     private bool rotated = false;
     private bool moving = false;
-    private GameObject wellOrPriest;
-    [SerializeField] private PlayerShooting playerShooting;
+    public Animator animator;
+
     void Start()
     {
         animator = body.GetComponent<Animator>();
@@ -81,7 +82,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnSprayWater(InputValue value)
     {
-        //playerLifeUI.lostLife(); //test buuuuuuuuug 
         if (waterMunition > 0)
         {
             playerShooting.ShootWater();
