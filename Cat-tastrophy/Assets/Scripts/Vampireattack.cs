@@ -88,7 +88,7 @@ public class Vampireattack : MonoBehaviour
 
             villagermanager.GetComponent<VillagerManager>().VillagerDied();
             Vampiremanager.GetComponent<VampireManager>().numberVampires = +1;
-            this.GetComponent<Animator>().SetBool("Walking", true);
+            GetComponent<Animator>().SetBool("fighting", false);
         }
     }
 }
