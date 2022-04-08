@@ -53,13 +53,6 @@ public class Vampireattack : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log("puhhh it'S gone!");
-        }
-    }
 
     private void waitforseconds(int seconds)
     {

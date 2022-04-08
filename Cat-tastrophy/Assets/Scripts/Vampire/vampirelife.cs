@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class vampirelife : MonoBehaviour
 {
@@ -11,8 +12,17 @@ public class vampirelife : MonoBehaviour
     bool washit;
     private int lifes=1;
 
-    private bool instantdeath = true;
+    private int secondstowait =5;
+    private float catpause = 0;
 
+    private Transform thisvampire;
+    private float scaleme=1;
+
+
+    private void Start()
+    {
+        thisvampire = GetComponent<Transform>();
+    }
 
     private void OnParticleCollision(GameObject other)
     {
@@ -21,28 +31,9 @@ public class vampirelife : MonoBehaviour
 
         if (other.gameObject.tag == "water")
         {
-            if (instantdeath == false)
-            {
-
-                if (cooldownseconds >= counting && washit == true) //do the countdown
-                {
-                    counting += Time.deltaTime;
-                }
-                if (cooldownseconds <= counting && washit == true)
-                {
-                    demage(1);
-                    counting = 0;
-                }
-            }
-            if (instantdeath == true)
-            {
-                demage(1);
-            }
-
+            demage(1);
 
         }
-
-        
 
         if (other.gameObject.tag == "cure")
         {
@@ -52,10 +43,53 @@ public class vampirelife : MonoBehaviour
         }  
     }
 
-     private void demage(int demage)
-     {
+    private void Update()
+    {
+        if (lifes <= 0)
+        {
+            fadeToBlack();
+        }
+
+    }
+
+    private void demage(int demage)
+    {
         lifes--;
-        gameObject.SetActive(false);
-        GameObject.Find("EnemyManager").GetComponent<VampireManager>().VampireDied();
-     }
+        if (lifes <= 0)
+        {
+            GameObject.Find("EnemyManager").GetComponent<VampireManager>().VampireDied();
+            this.GetComponent<Animator>().SetBool("dying", true);
+           // gameObject.GetComponent<VampireMovement>().collidedWithNpc = true;
+            gameObject.GetComponent<VampireMovement>().enabled = false;
+
+        }
+
+    }
+
+    private void fadeToBlack()
+    {
+        if (secondstowait <= catpause) //prepare the countdown, something collided.
+        {
+            catpause = 0;
+            scaleme = 1;
+        }
+
+        if (secondstowait >= catpause) //do the countdown
+        {
+            if(catpause>1 && scaleme > 0)
+            {
+               scaleme= scaleme - 0.4f * Time.deltaTime;
+            }
+            catpause += Time.deltaTime;
+
+            thisvampire.localScale = new Vector3(scaleme, scaleme, scaleme);
+        }
+
+        if (secondstowait <= catpause)
+        {
+            //gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+
+    }
 }
