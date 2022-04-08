@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D playerRB;
     [SerializeField] private GameObject body;
     [SerializeField] private PlayerVaccineUI playerVaccineUI;
+    [SerializeField] private PlayerWaterUI playerWaterUI;
     [SerializeField] private PlayerLifeUI playerLifeUI;
     [SerializeField] private PlayerShooting playerShooting;
     private GameObject well;
@@ -17,8 +18,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movementDirection;
     private Vector2 movementCoordinates;
     private float PLAYER_SPEED = 15.0f;
-    private int MAX_WATER_MUNITION = 1000005;
-    private int waterMunition;
     private bool refill = false;
     private bool rebless = false;
     private bool pickUpFood = false;
@@ -30,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         animator = body.GetComponent<Animator>();
-        waterMunition = MAX_WATER_MUNITION;
         foodList = new List<GameObject>();
     }
 
@@ -89,10 +87,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnSprayWater(InputValue value)
     {
-        if (waterMunition > 0)
+        if (playerWaterUI.LostWater())
         {
             playerShooting.ShootWater();
-            waterMunition--;
         }
     }
 
@@ -166,7 +163,7 @@ public class PlayerMovement : MonoBehaviour
         {
             bool canRefill = well.GetComponent<Well>().GetBlessedWater();
             if(!canRefill) { return; }
-            waterMunition = MAX_WATER_MUNITION;
+            playerWaterUI.ResetWater();
             playerVaccineUI.ResetVaccine();
         }
         else if (rebless)

@@ -33,18 +33,18 @@ public class PlayerWaterUI : MonoBehaviour
     void Start()
     {
         waterSpriteImage = UIPlayerWater.GetComponent<Image>();
-        ResetVaccine();
+        ResetWater();
     }
 
-    public void ResetVaccine()
+    public void ResetWater()
     {
         playerUIText.StopShowingText();
         waterSpriteImage.enabled = true;
-        waterSpriteImage.sprite = water10;
+        waterSpriteImage.sprite = water20;
         playerWater = MAX_PLAYER_WATER;
     }
 
-    public void AddVaccine(int value)
+    public void AddWater(int value)
     {
         playerWater += value;
         playerUIText.StopShowingText();
@@ -52,9 +52,9 @@ public class PlayerWaterUI : MonoBehaviour
         {
             playerWater = MAX_PLAYER_WATER;
         }
-        ChangeVaccine();
+        ChangeWater();
     }
-    public bool LostVaccine()
+    public bool LostWater()
     {
         playerWater--;
         if (playerWater < 0)
@@ -62,17 +62,17 @@ public class PlayerWaterUI : MonoBehaviour
             playerWater = 0;
             playerUIText.AddText("Go to the priest to refill your holy Water!");
             playerUIText.StartShowingText(5.0f);
-            ChangeVaccine();
+            ChangeWater();
             return false;
         }
         else
         {
-            ChangeVaccine();
+            ChangeWater();
             return true;
         }
     }
     
-    private void ChangeVaccine()
+    private void ChangeWater()
     {
         switch (playerWater)
         {
