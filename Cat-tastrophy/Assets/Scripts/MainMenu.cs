@@ -13,6 +13,11 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 0; i < highScore.scoreList.Length; i++)
+        {
+            int score = PlayerPrefs.GetInt(i.ToString());
+            highScore.scoreList[i] = score;
+        }
         RefreshHighscores();
     }
 
@@ -39,6 +44,12 @@ public class MainMenu : MonoBehaviour
     //Close the game when clicked on "Beenden"
     public void OnCloseClicked()
     {
+        for(int i = 0; i < highScore.scoreList.Length; i++)
+        {
+            int score = highScore.scoreList[i];
+            PlayerPrefs.SetInt(i.ToString(), score);
+        }
+        PlayerPrefs.Save();
         Application.Quit();
     }
 

@@ -58,6 +58,7 @@ public class vampirelife : MonoBehaviour
         lifes--;
         if (lifes <= 0&& alreadydying==false)
         {
+            this.gameObject.tag = "Untagged";
             alreadydying = true;
             GameObject.Find("EnemyManager").GetComponent<VampireManager>().VampireDied();
             this.GetComponent<Animator>().SetBool("dying", true);
