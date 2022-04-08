@@ -8,18 +8,19 @@ public class VampireManager : MonoBehaviour
     public GameObject villagerParent;
     public int numberVampires = 5;
 
-    private WaitTimes[] _paths;
+    private GameObject[] spawnpoints;
     private Vector3[] _startingPoints;
+    private Vector3 thisStartingpoint;
 
     // Start is called before the first frame update
     void Start()
     {
         //Alle Laufpfade holen und die Startpunkte auslesen
-        _paths = GetComponentsInChildren<WaitTimes>();
-        _startingPoints = new Vector3[_paths.Length];
-        for (int i = 0; i < _paths.Length; i++)
+        spawnpoints = GameObject.FindGameObjectsWithTag("VampireStartingPoint") ;
+        _startingPoints = new Vector3[spawnpoints.Length];
+        for (int i = 0; i < spawnpoints.Length; i++)
         {
-            Transform[] pathPoints = _paths[i].GetComponentsInChildren<Transform>();
+            Transform[] pathPoints = spawnpoints[i].GetComponentsInChildren<Transform>();
             _startingPoints[i] = pathPoints[1].transform.position;
         }
 
@@ -36,17 +37,18 @@ public class VampireManager : MonoBehaviour
         Vampirecounter.text = (numberVampires).ToString();
     }
 
-    private Vector3 GetRandomStartPoint()
+    private void GetRandomStartPoint()
     {
         int i = Random.Range(0, _startingPoints.Length);
-        return _startingPoints[i];
+        thisStartingpoint= _startingPoints[i];
     }
 
     public void Addvampire(int numberOfVampires)
     {
         for (int i = 0; i < numberOfVampires; i++)
         {
-            GameObject temp = Instantiate(Vampireprefab, new Vector3(0, 0, 0), Quaternion.identity, villagerParent.transform);
+            GetRandomStartPoint();
+            GameObject temp = Instantiate(Vampireprefab, thisStartingpoint, Quaternion.identity, villagerParent.transform);
             
         }
     }
