@@ -4,7 +4,7 @@ public class Vampireattack : MonoBehaviour
 {
     GameObject villagermanager;
     GameObject Vampiremanager;
-    //PlayerMovement player;  //Von Mario
+    //PlayerLifeUI playerLifeUI;  //Von Mario
     bool collidedWithNpc = false;
     float catpause = 0;
     private Vector3 npcPos;
@@ -28,8 +28,8 @@ public class Vampireattack : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("demage");
-            //player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>(); //Von Mario
-            //player.damage();    //Von Mario
+            //playerLifeUI = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLifeUI>(); //Von Mario
+            //playerLifeUI.lostLife();    //Von Mario
         }
 
         if (collision.gameObject.tag == "Villager"&& collidedWithNpc == false)

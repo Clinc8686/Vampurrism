@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerUI : MonoBehaviour
+public class PlayerLifeUI : MonoBehaviour
 {
     [SerializeField] private Sprite heart1;
     [SerializeField] private Sprite heart2;
@@ -37,16 +35,18 @@ public class PlayerUI : MonoBehaviour
         }
         changeLife();
     }
-    public void lostLife()
+    public bool lostLife()
     {
-        playerLife--;
-        if (playerLife <= 0)
+        if (playerLife <= 1)
         {
             //gameover
+            return false;
         }
         else
         {
+            playerLife--;
             changeLife();
+            return true;
         }
     }
     

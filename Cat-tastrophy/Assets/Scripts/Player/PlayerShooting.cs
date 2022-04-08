@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,13 +11,13 @@ public class PlayerShooting : MonoBehaviour
     private float AIM_MAX_DISTANCE = 200.0f;
     private float VACCINE_BASE_SPEED = 20.0f;
     private float WATER_BASE_SPEED = 20.0f;
-    private PlayerMovement playerMovement;
+    [SerializeField] private PlayerMovement playerMovement;
     public Vector2 mouseDirectionFromVaccinePosition;
     public Vector2 mouseDirectionFromWaterPosition;
 
     void Start()
     {
-        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        //playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
     
     private void LateUpdate()

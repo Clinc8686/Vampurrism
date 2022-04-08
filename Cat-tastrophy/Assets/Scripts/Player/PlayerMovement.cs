@@ -1,17 +1,16 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 { 
     [SerializeField] private Rigidbody2D playerRB;
     [SerializeField] private GameObject body;
+    [SerializeField] private PlayerVaccineUI playerVaccineUI;
+    [SerializeField] private PlayerLifeUI playerLifeUI;
     public Animator animator;
     private Vector2 movementDirection;
     private Vector2 movementCoordinates;
     private float PLAYER_SPEED = 15.0f;
-    private int MAX_VACCINE_MUNITION = 1000005;
-    private int vaccineMunition;
     private int MAX_WATER_MUNITION = 1000005;
     private int waterMunition;
     private bool refill = false;
@@ -20,14 +19,10 @@ public class PlayerMovement : MonoBehaviour
     private bool rotated = false;
     private bool moving = false;
     private GameObject wellOrPriest;
-    private PlayerUI playerUI;
-    private PlayerShooting playerShooting;
+    [SerializeField] private PlayerShooting playerShooting;
     void Start()
     {
         animator = body.GetComponent<Animator>();
-        playerUI = GameObject.FindGameObjectWithTag("PlayerUI").GetComponent<PlayerUI>();
-        playerShooting = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShooting>();
-        vaccineMunition = MAX_VACCINE_MUNITION;
         waterMunition = MAX_WATER_MUNITION;
     }
 
@@ -78,15 +73,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnVaccinate(InputValue value)
     {
-        if (vaccineMunition > 0)
+        if (playerVaccineUI.lostVaccine())
         {
             playerShooting.ShootVaccine();
-            vaccineMunition--;
         }
     }
 
     private void OnSprayWater(InputValue value)
     {
+        //playerLifeUI.lostLife(); //test buuuuuuuuug 
         if (waterMunition > 0)
         {
             playerShooting.ShootWater();
@@ -139,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
             bool canRefill = wellOrPriest.GetComponent<Well>().GetBlessedWater();
             if(!canRefill) { return; }
             waterMunition = 10;
-            vaccineMunition = 10;
+            playerVaccineUI.resetVaccine();
         }
         else if (rebless)
         {
@@ -151,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
             int heal = wellOrPriest.GetComponent<Food>().GetRegenHealth();
             wellOrPriest.GetComponent<Food>().OnPickUpFood();
             wellOrPriest = null;
-            playerUI.addLife(heal);
+            playerLifeUI.addLife(heal);
         }
     }
 
