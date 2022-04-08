@@ -15,6 +15,7 @@ public class PlayerVaccineUI : MonoBehaviour
     [SerializeField] private Sprite vaccine10;
     [SerializeField] private GameObject UIPlayerVaccine;
     private int playerVaccine;
+    [SerializeField] private PlayerUIText playerUIText;
     private int MAX_PLAYER_VACCINE = 10;
     private Image vaccineSpriteImage;
     
@@ -26,6 +27,7 @@ public class PlayerVaccineUI : MonoBehaviour
 
     public void resetVaccine()
     {
+        //playerUIText.stopShowingText();
         vaccineSpriteImage.enabled = true;
         vaccineSpriteImage.sprite = vaccine10;
         playerVaccine = MAX_PLAYER_VACCINE;
@@ -33,6 +35,7 @@ public class PlayerVaccineUI : MonoBehaviour
 
     public void addVaccine(int value)
     {
+        //playerUIText.startShowingText();
         if (playerVaccine > MAX_PLAYER_VACCINE)
         {
             playerVaccine = MAX_PLAYER_VACCINE;
@@ -45,7 +48,8 @@ public class PlayerVaccineUI : MonoBehaviour
         if (playerVaccine <= 0)
         {
             playerVaccine = 0;
-            //no vaccine
+            //playerUIText.addText("Go to the priest to refill your holy Water!", true);
+            //playerUIText.startShowingText();
             changeVaccine();
             return false;
         }

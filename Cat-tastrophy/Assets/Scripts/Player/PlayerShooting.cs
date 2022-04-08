@@ -15,11 +15,6 @@ public class PlayerShooting : MonoBehaviour
     public Vector2 mouseDirectionFromVaccinePosition;
     public Vector2 mouseDirectionFromWaterPosition;
 
-    void Start()
-    {
-        //playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-    }
-    
     private void LateUpdate()
     {
         Aim();
