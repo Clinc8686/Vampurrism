@@ -77,7 +77,6 @@ public class VillagerManager : MonoBehaviour
             }
         }
         int x = Random.Range(0, possiblePaths.Count);
-        Debug.Log("Looking for a new path in: " + possiblePaths.Count + ", paths are: " + _paths.Length);
         return _paths[possiblePaths[x]];
     }
 

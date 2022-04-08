@@ -99,7 +99,10 @@ public class VillagerMovement : MonoBehaviour
 
     }
 
-
+    public bool GetDirection()
+    {
+        return _direction;
+    }
 
     IEnumerator WaitingAtPoint()
     {
