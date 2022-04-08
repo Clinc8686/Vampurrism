@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private bool rotated = false;
     private bool moving = false;
     public Animator animator;
+    private DateTime oldTime;
 
     void Start()
     {
@@ -111,6 +113,21 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("demage");
             playerLifeUI.lostLife();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        DateTime now = DateTime.Now;
+        TimeSpan difference = now.Subtract(oldTime);
+        if (difference.TotalSeconds > 1)
+        {
+            if (col.gameObject.tag == "Enemy")
+            {
+                Debug.Log("demage");
+                playerLifeUI.lostLife();
+            }
+            oldTime = DateTime.Now;
         }
     }
 
