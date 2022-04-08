@@ -615,7 +615,7 @@ MonoBehaviour:
   playerRB: {fileID: 2432734824276256992}
   body: {fileID: 411774895516393705}
   playerVaccineUI: {fileID: 1922322853939539635}
-  playerLifeUI: {fileID: 0}
+  playerLifeUI: {fileID: 3981918474026597085}
   animator: {fileID: 2272380818298692851}
   playerShooting: {fileID: 8297380211462286218}
 --- !u!114 &8297380211462286218
