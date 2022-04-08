@@ -7,6 +7,8 @@ public class PlayerPauseMenu : MonoBehaviour
     public GameObject pauseCanvas;
     public GameObject villagerManager;
     public GameObject enemyManager;
+    public GameObject otherCanvas1;
+    public GameObject otherCanvas2;
 
     private bool _isMenuActive = false;
 
@@ -31,17 +33,21 @@ public class PlayerPauseMenu : MonoBehaviour
     private void OpenCloseMenu()
     {
         pauseCanvas.SetActive(_isMenuActive);
+        otherCanvas1.SetActive(!_isMenuActive);
+        otherCanvas2.SetActive(!_isMenuActive);
         villagerManager.SetActive(!_isMenuActive);
         enemyManager.SetActive(!_isMenuActive);
     }
 
     public void OnBackToMainMenuClicked()
     {
+        Debug.Log("Button clicked");
         SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 
     public void OnBackToGameClicked()
     {
+        Debug.Log("Button clicked");
         _isMenuActive = !_isMenuActive;
         OpenCloseMenu();
     }
