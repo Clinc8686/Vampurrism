@@ -11,6 +11,7 @@ public class vampirelife : MonoBehaviour
     public float cooldownseconds= 1;
     bool washit;
     private int lifes=1;
+    bool alreadydying = false;
 
     private int secondstowait =5;
     private float catpause = 0;
@@ -55,8 +56,9 @@ public class vampirelife : MonoBehaviour
     private void demage(int demage)
     {
         lifes--;
-        if (lifes <= 0)
+        if (lifes <= 0&& alreadydying==false)
         {
+            alreadydying = true;
             GameObject.Find("EnemyManager").GetComponent<VampireManager>().VampireDied();
             this.GetComponent<Animator>().SetBool("dying", true);
            // gameObject.GetComponent<VampireMovement>().collidedWithNpc = true;

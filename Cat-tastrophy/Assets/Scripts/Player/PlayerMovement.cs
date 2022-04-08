@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnVaccinate(InputValue value)
     {
-        if (playerVaccineUI.lostVaccine())
+        if (playerVaccineUI.LostVaccine())
         {
             playerShooting.ShootVaccine();
         }
@@ -118,10 +118,9 @@ public class PlayerMovement : MonoBehaviour
             foodEnterCounter++;
         }
         
-        if (col.gameObject.tag == "Enemy")
+        if (col.CompareTag("Enemy"))
         {
-            Debug.Log("demage");
-            playerLifeUI.lostLife();
+            playerLifeUI.LostLife();
         }
     }
 
@@ -131,10 +130,9 @@ public class PlayerMovement : MonoBehaviour
         TimeSpan difference = now.Subtract(oldTime);
         if (difference.TotalSeconds > 1)
         {
-            if (col.gameObject.tag == "Enemy")
+            if (col.CompareTag("Enemy"))
             {
-                Debug.Log("demage");
-                playerLifeUI.lostLife();
+                playerLifeUI.LostLife();
             }
             oldTime = DateTime.Now;
         }
@@ -169,7 +167,7 @@ public class PlayerMovement : MonoBehaviour
             bool canRefill = well.GetComponent<Well>().GetBlessedWater();
             if(!canRefill) { return; }
             waterMunition = 10;
-            playerVaccineUI.resetVaccine();
+            playerVaccineUI.ResetVaccine();
         }
         else if (rebless)
         {
@@ -179,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
         {
             int heal = foodList[0].GetComponent<Food>().GetRegenHealth();
             foodList[0].GetComponent<Food>().OnPickUpFood();
-            playerLifeUI.addLife(heal);
+            playerLifeUI.AddLife(heal);
         }
     }
 

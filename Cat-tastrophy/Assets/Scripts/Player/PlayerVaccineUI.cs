@@ -22,45 +22,46 @@ public class PlayerVaccineUI : MonoBehaviour
     void Start()
     {
         vaccineSpriteImage = UIPlayerVaccine.GetComponent<Image>();
-        resetVaccine();
+        ResetVaccine();
     }
 
-    public void resetVaccine()
+    public void ResetVaccine()
     {
-        //playerUIText.stopShowingText();
+        playerUIText.StopShowingText();
         vaccineSpriteImage.enabled = true;
         vaccineSpriteImage.sprite = vaccine10;
         playerVaccine = MAX_PLAYER_VACCINE;
     }
 
-    public void addVaccine(int value)
+    public void AddVaccine(int value)
     {
-        //playerUIText.startShowingText();
+        playerVaccine += value;
+        playerUIText.StopShowingText();
         if (playerVaccine > MAX_PLAYER_VACCINE)
         {
             playerVaccine = MAX_PLAYER_VACCINE;
         }
-        changeVaccine();
+        ChangeVaccine();
     }
-    public bool lostVaccine()
+    public bool LostVaccine()
     {
         playerVaccine--;
-        if (playerVaccine <= 0)
+        if (playerVaccine < 0)
         {
             playerVaccine = 0;
-            //playerUIText.addText("Go to the priest to refill your holy Water!", true);
-            //playerUIText.startShowingText();
-            changeVaccine();
+            playerUIText.AddText("Go to the priest to refill your holy Water!");
+            playerUIText.StartShowingText(5.0f);
+            ChangeVaccine();
             return false;
         }
         else
         {
-            changeVaccine();
+            ChangeVaccine();
             return true;
         }
     }
     
-    private void changeVaccine()
+    private void ChangeVaccine()
     {
         switch (playerVaccine)
         {

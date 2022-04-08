@@ -11,7 +11,6 @@ public class PlayerLifeUI : MonoBehaviour
     [SerializeField] private Sprite heart6;
     [SerializeField] private Sprite heart7;
     [SerializeField] private GameObject UIPlayerLife;
-    public GameOver gameOver;
     private Image lifeSpriteImage;
     private int playerLife;
     private int MAX_PLAYER_LIFE = 7;
@@ -20,42 +19,42 @@ public class PlayerLifeUI : MonoBehaviour
     void Start()
     {
         lifeSpriteImage = UIPlayerLife.GetComponent<Image>();
-        resetLife();
+        ResetLife();
     }
 
-    public void resetLife()
+    public void ResetLife()
     {
         lifeSpriteImage.enabled = true;
         lifeSpriteImage.sprite = heart7;
         playerLife = MAX_PLAYER_LIFE;
     }
 
-    public void addLife(int value)
+    public void AddLife(int value)
     {
         if (playerLife > MAX_PLAYER_LIFE)
         {
             playerLife = MAX_PLAYER_LIFE;
         }
-        changeLife();
+        ChangeLife();
     }
-    public bool lostLife()
+    public bool LostLife()
     {
         playerLife--;
         if (playerLife <= 0)
         {
             playerLife = 0;
-            changeLife();
-            gameOver.LostGame(true);
+            ChangeLife();
+            //gameover
             return false;
         }
         else
         {
-            changeLife();
+            ChangeLife();
             return true;
         }
     }
     
-    private void changeLife()
+    private void ChangeLife()
     {
         switch (playerLife)
         {
