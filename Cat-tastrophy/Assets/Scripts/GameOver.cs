@@ -14,6 +14,7 @@ public class GameOver : MonoBehaviour
     private PlayerMovement _movement;
     private PlayerShooting _shooting;
     private PlayerPauseMenu _pauseMenu;
+    private bool _isGameOver = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,9 @@ public class GameOver : MonoBehaviour
 
     public void LostGame(bool playerGameOver)
     {
+        Debug.Log("Game over");
+        if(_isGameOver) { return; }
+        _isGameOver = true;
         gameOverCanvas.SetActive(true);
         _movement.enabled = false;
         _shooting.enabled = false;
