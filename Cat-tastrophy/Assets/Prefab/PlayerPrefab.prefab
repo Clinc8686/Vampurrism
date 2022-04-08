@@ -2855,7 +2855,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &647713775889658416
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3603,7 +3603,9 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 5809751600220568174}
   highScore: {fileID: 11400000, guid: c65a7e5a50fe299448cab747ee156b6e, type: 2}
   highScoreScreen: {fileID: 8816359396456888388}
+  vampireManager: {fileID: 0}
   scoreText: {fileID: 4088144165131240961}
+  deathCauseText: {fileID: 506587895188406867}
 --- !u!114 &518529605637940611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3967,7 +3969,7 @@ MonoBehaviour:
   heart6: {fileID: 21300000, guid: bdca653f0af39f0499359ee1fa5fe91a, type: 3}
   heart7: {fileID: 21300000, guid: c413cbfabfc1b7f4a9112c6f19debe37, type: 3}
   UIPlayerLife: {fileID: 6880542023888218195}
-  gameOver: {fileID: 0}
+  gameOver: {fileID: 3575523609542386229}
 --- !u!1 &6892211920545119880
 GameObject:
   m_ObjectHideFlags: 0
