@@ -59,6 +59,7 @@ public class vampirelife : MonoBehaviour
         if (lifes <= 0&& alreadydying==false)
         {
             this.gameObject.tag = "Untagged";
+            this.gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
             alreadydying = true;
             GameObject.Find("EnemyManager").GetComponent<VampireManager>().VampireDied();
             this.GetComponent<Animator>().SetBool("dying", true);
