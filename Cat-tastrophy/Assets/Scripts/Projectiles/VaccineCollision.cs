@@ -1,18 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VaccineCollission : MonoBehaviour
+public class VaccineCollision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject vaccinePrefab;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        
+        Debug.Log("Alarm: " + col.name + "  " + col.tag);
+        if (col.CompareTag("Enemy"))
+        {
+            Destroy(vaccinePrefab);
+        }
     }
 }
