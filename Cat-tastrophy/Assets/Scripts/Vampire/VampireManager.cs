@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class VampireManager : MonoBehaviour
 {
-    public GameObject Vampireprefab;
+    public GameObject[] Vampireprefabs;
     public Text Vampirecounter;
     public GameObject villagerParent;
     public int numberVampires = 20;
@@ -60,7 +60,11 @@ public class VampireManager : MonoBehaviour
         for (int i = 0; i < numberOfVampires; i++)
         {
             GetRandomStartPoint();
-            GameObject temp = Instantiate(Vampireprefab, thisStartingpoint, Quaternion.identity, villagerParent.transform);
+            int x = Random.Range(0, 30);
+            x = x > 24 ? 2 : x;
+            x = x > 19 ? 1 : x;
+            x = x > 2 ? 0 : x;
+            GameObject temp = Instantiate(Vampireprefabs[x], thisStartingpoint, Quaternion.identity, villagerParent.transform);
             
         }
     }
@@ -68,7 +72,11 @@ public class VampireManager : MonoBehaviour
     {
         for (int i = 0; i < numberOfVampires; i++)
         {
-            GameObject temp = Instantiate(Vampireprefab, position, Quaternion.identity, villagerParent.transform);
+            int x = Random.Range(0, 30);
+            x = x > 24 ? 2 : x;
+            x = x > 19 ? 1 : x;
+            x = x > 2 ? 0 : x;
+            GameObject temp = Instantiate(Vampireprefabs[x], position, Quaternion.identity, villagerParent.transform);
             numberVampires++;
             Vampirecounter.text = (_numberVampiresKilled).ToString();
             Debug.Log(numberVampires);
