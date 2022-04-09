@@ -7,6 +7,7 @@ public class Well : MonoBehaviour
     public Sprite blessedWell;
     public int wellStaysBlessedTime = 5;
     public ParticleSystem SparcleParticles;
+    public GameObject interactIndicator;
 
     private bool _isBlessed = false;
     private bool _isFull = true;
@@ -40,6 +41,7 @@ public class Well : MonoBehaviour
         {
             _isBlessed = false;
             this.gameObject.GetComponent<SpriteRenderer>().sprite = normalWell;
+            interactIndicator.SetActive(false);
             return true;
         }
         return false;
@@ -48,5 +50,21 @@ public class Well : MonoBehaviour
     public void SetIsFull(bool x)
     {
         _isFull = x;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && _isBlessed)
+        {
+            interactIndicator.SetActive(true);
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            interactIndicator.SetActive(false);
+        }
     }
 }

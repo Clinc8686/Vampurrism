@@ -13,6 +13,7 @@ public class PriestBlessing : MonoBehaviour
     public string coolDownText = "Am Beten...";
     public string blessingText = "Am Weihen...";
     public Well well;
+    public GameObject interactIndicator;
 
     private float _coolDownInterval;
     private float _blessInterval;
@@ -61,6 +62,7 @@ public class PriestBlessing : MonoBehaviour
         {
             Debug.Log("Starting to bless..." + _blessInterval);
             gameObject.GetComponent<Animator>().SetTrigger("Blessing");
+            interactIndicator.SetActive(false);
             _blessingInProgress = 1;
             blessingBar.SetActive(true);
             blessingTextObject.text = blessingText;
@@ -107,5 +109,21 @@ public class PriestBlessing : MonoBehaviour
         StartCoroutine(CoolDownBlessing());
         priestSpeechBubble.AddText("The well contains now holy water.");
         priestSpeechBubble.StartShowingText(5.0f);
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && _blessingInProgress == 0)
+        {
+            interactIndicator.SetActive(true);
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            interactIndicator.SetActive(false);
+        }
     }
 }
