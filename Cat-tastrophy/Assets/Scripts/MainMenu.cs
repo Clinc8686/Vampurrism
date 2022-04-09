@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 
 public class MainMenu : MonoBehaviour
 {
@@ -34,22 +35,15 @@ public class MainMenu : MonoBehaviour
         highScoreScreen.SetActive(false);
     }
 
-    //Only for testing if the score-Method works
-    public void AddScore()
-    {
-        highScore.AddScore(int.Parse(scoreToAdd.text));
-        RefreshHighscores();
-    }
-
     //Close the game when clicked on "Beenden"
     public void OnCloseClicked()
     {
-        for(int i = 0; i < highScore.scoreList.Length; i++)
-        {
-            int score = highScore.scoreList[i];
-            PlayerPrefs.SetInt(i.ToString(), score);
-        }
-        PlayerPrefs.Save();
+        StartCoroutine(TestQuit());
+    }
+
+    IEnumerator TestQuit()
+    {
+        yield return new WaitForSeconds(1);
         Application.Quit();
     }
 
