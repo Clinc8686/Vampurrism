@@ -7,6 +7,8 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject highScoreScreen;
     public GameObject creditsScreen;
+    public GameObject howToPlayScreen;
+    public GameObject optionsScreen;
     public int[] gameSceneNames;
     public Highscore highScore;
     public Text scoreToAdd;
@@ -60,21 +62,28 @@ public class MainMenu : MonoBehaviour
         highScoreScreen.SetActive(true);
     }
 
-    //Hide the Highscore List when clicked on "Zurück"
-    public void OnHighscoreBackClicked()
-    {
-        highScoreScreen.SetActive(false);
-    }
-
     //Show the Credits when clicked on "Credits"
     public void OnCreditsClicked()
     {
         creditsScreen.SetActive(true);
     }
 
+    public void OnHowToPlayClicked()
+    {
+        howToPlayScreen.SetActive(true);
+    }
+
+    public void OnOptionsClicked()
+    {
+        optionsScreen.SetActive(true);
+    }
+
     //Hide the Credits when clicked on "Zurück"
-    public void OnCreditsBackClicked()
+    public void OnBackClicked()
     {
         creditsScreen.SetActive(false);
+        highScoreScreen.SetActive(false);
+        howToPlayScreen.SetActive(false);
+        optionsScreen.SetActive(false);
     }
 }

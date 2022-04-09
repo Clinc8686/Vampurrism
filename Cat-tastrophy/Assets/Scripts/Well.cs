@@ -20,6 +20,7 @@ public class Well : MonoBehaviour
         SparcleParticles.gameObject.SetActive(true); // maja he
         SparcleParticles.Play();                     // maja ho
         StartCoroutine(WellBlessTime());
+        transform.GetComponent<AudioSource>().Play();
     }
 
     //After a certain time the well automatically unblesses itself
