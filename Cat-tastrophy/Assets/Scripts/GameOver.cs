@@ -77,11 +77,17 @@ public class GameOver : MonoBehaviour
     public void OnNewGame()
     {
         int i = Random.Range(1, 3);
+        float _fixedDeltaTime = Time.fixedDeltaTime;
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = _fixedDeltaTime * Time.timeScale;
         SceneManager.LoadScene(i, LoadSceneMode.Single);
     }
 
     public void OnMainMenu()
     {
+        float _fixedDeltaTime = Time.fixedDeltaTime;
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = _fixedDeltaTime * Time.timeScale;
         SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 }
