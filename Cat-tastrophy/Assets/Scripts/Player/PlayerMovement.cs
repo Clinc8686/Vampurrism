@@ -134,6 +134,7 @@ public class PlayerMovement : MonoBehaviour
         if (col.CompareTag("Enemy"))
         {
             playerLifeUI.LostLife();
+            
         }
     }
 
