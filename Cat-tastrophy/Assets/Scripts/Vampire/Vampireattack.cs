@@ -29,7 +29,9 @@ public class Vampireattack : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && !_attackedPlayer)
         {
-            Debug.Log("KEep colliding with a player");
+            GameObject temp = collision.gameObject.transform.parent.gameObject;
+            GameObject temp2 = temp.gameObject.transform.parent.gameObject;
+            playerLifeUI = temp2.GetComponentInChildren<PlayerLifeUI>();
             playerLifeUI.LostLife();
             _attackedPlayer = true;
             StartCoroutine(AttackCooldown());
@@ -46,24 +48,14 @@ public class Vampireattack : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Stopped colliding with a player");
+            StopAllCoroutines();
             _attackedPlayer = false;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log("Collided with a player");
-            GameObject temp = collision.gameObject.transform.parent.gameObject;
-            GameObject temp2 = temp.gameObject.transform.parent.gameObject;
-            playerLifeUI = temp2.GetComponentInChildren<PlayerLifeUI>();
-            playerLifeUI.LostLife();
-            _attackedPlayer = true;
-            StartCoroutine(AttackCooldown());
-        }
-        else*/ if (collision.gameObject.tag == "Villager"&& collidedWithNpc == false)
+        if (collision.gameObject.tag == "Villager"&& collidedWithNpc == false)
         {
             //Debug.Log("turning a cat into a vampire muahahahah"); // 0 = normal, 1= impf
 
