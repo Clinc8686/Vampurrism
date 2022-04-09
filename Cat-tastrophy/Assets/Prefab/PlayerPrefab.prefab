@@ -729,9 +729,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11654353, y: -0.10641551}
+  m_Offset: {x: -0.1482966, y: -0.082678914}
   serializedVersion: 2
-  m_Radius: 1.558605
+  m_Radius: 1.1656601
 --- !u!1 &487359438317622953
 GameObject:
   m_ObjectHideFlags: 0
@@ -3236,7 +3236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1076517045205902581
 RectTransform:
   m_ObjectHideFlags: 0
