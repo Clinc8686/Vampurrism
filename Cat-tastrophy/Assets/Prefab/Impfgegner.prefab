@@ -402,8 +402,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalFood: {fileID: 9061052422422332316, guid: 301e6e52fd35ce8418146f991e9cf2ef, type: 3}
   betterFood: {fileID: 9061052422422332316, guid: a4eeac89ec90c63419e3566dc75c3a7a, type: 3}
-  dropTime: 20
-  dropChance: 10
+  dropTime: 30
+  dropChance: 20
 --- !u!114 &1592722007190137253
 MonoBehaviour:
   m_ObjectHideFlags: 0
