@@ -6,6 +6,7 @@ public class Well : MonoBehaviour
     public Sprite normalWell;
     public Sprite blessedWell;
     public int wellStaysBlessedTime = 5;
+    public ParticleSystem SparcleParticles;
 
     private bool _isBlessed = false;
     private bool _isFull = true;
@@ -16,6 +17,8 @@ public class Well : MonoBehaviour
         if(!_isFull) { return; }
         _isBlessed = true;
         this.gameObject.GetComponent<SpriteRenderer>().sprite = blessedWell;
+        SparcleParticles.gameObject.SetActive(true); // maja he
+        SparcleParticles.Play();                     // maja ho
         StartCoroutine(WellBlessTime());
     }
 
@@ -25,6 +28,8 @@ public class Well : MonoBehaviour
         yield return new WaitForSeconds(wellStaysBlessedTime);
         _isBlessed = false;
         this.gameObject.GetComponent<SpriteRenderer>().sprite = normalWell;
+        SparcleParticles.Stop();                      // maja da
+        //SparcleParticles.gameObject.SetActive(false); // maja ah-ah
     }
 
     //Returns true if the well is blessed and unblesses it
