@@ -58,7 +58,7 @@ public class PlayerLifeUI : MonoBehaviour
         }
         else
         {
-            if (transform.GetComponent<AudioSource>().isPlaying)
+            if (!transform.GetComponent<AudioSource>().isPlaying)
             {
                 transform.GetComponent<AudioSource>().Play();
             }
