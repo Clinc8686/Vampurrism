@@ -18516,6 +18516,22 @@ PrefabInstance:
       propertyPath: maxNumberVampires
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5825536439799397565, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
+      propertyPath: Vampireprefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5825536439799397565, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
+      propertyPath: Vampireprefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1592722007190137260, guid: f0c737ecee5f11c4d827cc1a66bf4365, type: 3}
+    - target: {fileID: 5825536439799397565, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
+      propertyPath: Vampireprefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1592722007190137260, guid: f606e2b67503b69479a798a663e92b4f, type: 3}
+    - target: {fileID: 5825536439799397565, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
+      propertyPath: Vampireprefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1592722007190137260, guid: 90f39a6d3cac2ce4e9b80e9996905c68, type: 3}
     - target: {fileID: 7222333636690532646, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
       propertyPath: m_LocalPosition.x
       value: -51.6
