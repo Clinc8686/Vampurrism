@@ -15,10 +15,12 @@ public class GameOver : MonoBehaviour
     private PlayerShooting _shooting;
     private PlayerPauseMenu _pauseMenu;
     private bool _isGameOver = false;
+    private float _fixedDeltaTime;
 
     // Start is called before the first frame update
     void Start()
     {
+        this._fixedDeltaTime = Time.fixedDeltaTime;
         _movement = gameObject.GetComponent<PlayerMovement>();
         _shooting = gameObject.GetComponent<PlayerShooting>();
         _pauseMenu = gameObject.GetComponent<PlayerPauseMenu>();
@@ -31,7 +33,6 @@ public class GameOver : MonoBehaviour
         _isGameOver = true;
         gameOverCanvas.SetActive(true);
         _movement.SetPauseMenuOpen(_isGameOver);
-        float _fixedDeltaTime = Time.fixedDeltaTime;
         Time.timeScale = 0f;
         Time.fixedDeltaTime = _fixedDeltaTime * Time.timeScale;
         _movement.enabled = false;
@@ -77,7 +78,6 @@ public class GameOver : MonoBehaviour
     public void OnNewGame()
     {
         int i = Random.Range(1, 3);
-        float _fixedDeltaTime = Time.fixedDeltaTime;
         Time.timeScale = 1f;
         Time.fixedDeltaTime = _fixedDeltaTime * Time.timeScale;
         SceneManager.LoadScene(i, LoadSceneMode.Single);
@@ -85,7 +85,6 @@ public class GameOver : MonoBehaviour
 
     public void OnMainMenu()
     {
-        float _fixedDeltaTime = Time.fixedDeltaTime;
         Time.timeScale = 1f;
         Time.fixedDeltaTime = _fixedDeltaTime * Time.timeScale;
         SceneManager.LoadScene(0, LoadSceneMode.Single);

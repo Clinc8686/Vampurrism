@@ -69,8 +69,5 @@ public class PlayerPauseMenu : MonoBehaviour
     public void OnBackClicked()
     {
         optionsScreen.SetActive(false);
-        _isMenuActive = !_isMenuActive;
-        Time.timeScale = 1.0f;
-        Time.fixedDeltaTime = this._fixedDeltaTime * Time.timeScale;
     }
 }
