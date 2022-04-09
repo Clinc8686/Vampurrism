@@ -59,6 +59,7 @@ public class PriestBlessing : MonoBehaviour
         if(_blessingInProgress == 0 && _canBless)
         {
             Debug.Log("Starting to bless..." + _blessInterval);
+            gameObject.GetComponent<Animator>().SetTrigger("Blessing");
             _blessingInProgress = 1;
             blessingBar.SetActive(true);
             blessingTextObject.text = blessingText;
