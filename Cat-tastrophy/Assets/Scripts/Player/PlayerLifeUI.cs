@@ -48,7 +48,6 @@ public class PlayerLifeUI : MonoBehaviour
     }
     public bool LostLife()
     {
-        Debug.Log("Losing a life " + playerLife);
         playerLife--;
         if (playerLife <= 0)
         {
@@ -59,6 +58,7 @@ public class PlayerLifeUI : MonoBehaviour
         }
         else
         {
+            transform.GetComponent<AudioSource>().Play();
             ChangeLife();
             return true;
         }
