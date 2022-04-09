@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        playerRB.velocity += movementCoordinates * Time.deltaTime;
+        playerRB.velocity = movementCoordinates;
         Vector3 playerLocalScale = transform.localScale;
         if (rotated)
         {
@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
             moving = false; 
         }
         movementDirection = value.Get<Vector2>();
-        playerRB.velocity = new Vector2(movementDirection.normalized.x, movementDirection.normalized.y) * PLAYER_SPEED;
+        movementCoordinates = new Vector2(movementDirection.normalized.x, movementDirection.normalized.y) * PLAYER_SPEED;
     }
 
     private void OnVaccinate(InputValue value)
