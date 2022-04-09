@@ -135,7 +135,6 @@ public class PlayerMovement : MonoBehaviour
         }
         if (col.CompareTag("Enemy") && !_gettingAttacked)
         {
-            Debug.Log("Getting attacked by enemy");
             playerLifeUI.LostLife();
             _gettingAttacked = true;
             StartCoroutine(AttackCooldown());
@@ -144,9 +143,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator AttackCooldown()
     {
-        Debug.Log("Invinceble seconds");
         yield return new WaitForSeconds(attackOverTimeCooldown);
-        Debug.Log("Can get attacked again");
         _gettingAttacked = false;
     }
 
@@ -154,7 +151,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" && !_gettingAttacked)
         {
-            Debug.Log("Keeps getting attacked by enemy");
             playerLifeUI.LostLife();
             _gettingAttacked = true;
             StartCoroutine(AttackCooldown());
