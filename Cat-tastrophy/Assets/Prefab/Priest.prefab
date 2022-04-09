@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 712988174753586156}
   - component: {fileID: 3731127314655657537}
   - component: {fileID: 1791791901955126129}
-  - component: {fileID: 6753633666482121545}
+  - component: {fileID: 833340074114250591}
   m_Layer: 5
   m_Name: speechBubbleText
   m_TagString: Untagged
@@ -152,7 +152,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Hier k\xF6nnte noch mal ihre Werbung stehen!"
---- !u!114 &6753633666482121545
+--- !u!114 &833340074114250591
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 428532247379721124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be1b0b418105aae4b9318e003b8ed0a7, type: 3}
+  m_Script: {fileID: 11500000, guid: eb2f71e771def4d4bb31ff85aa851821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   UIText: {fileID: 1791791901955126129}
@@ -175,7 +175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7551543030623595256}
   - component: {fileID: 8333088180132095358}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 1527390015690940121}
   - component: {fileID: 2755748540291376094}
   - component: {fileID: 8956091857085048914}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Well
   m_TagString: WaterWell
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.2655349, y: -3.9665656}
@@ -999,7 +999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43749737f3a5b3a468c91f5d7f22402e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priestSpeechBubble: {fileID: 6753633666482121545}
+  priestSpeechBubble: {fileID: 833340074114250591}
   blessingTime: 5
   blessingCooldown: 10
   blessingBar: {fileID: 3960957432320634906}

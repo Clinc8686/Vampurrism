@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PriestBlessing : MonoBehaviour
 {
-    [SerializeField] private PlayerUIText priestSpeechBubble;
+    [SerializeField] private PriestSpeechBubble priestSpeechBubble;
     public int blessingTime = 5;
     public int blessingCooldown = 100;
     public GameObject blessingBar;
@@ -60,7 +60,6 @@ public class PriestBlessing : MonoBehaviour
     {
         if(_blessingInProgress == 0 && _canBless)
         {
-            Debug.Log("Starting to bless..." + _blessInterval);
             gameObject.GetComponent<Animator>().SetTrigger("Blessing");
             interactIndicator.SetActive(false);
             _blessingInProgress = 1;
@@ -102,7 +101,6 @@ public class PriestBlessing : MonoBehaviour
     //Blesses the well and starts the cooling down process
     private void FinishedBlessing()
     {
-        Debug.Log("Finished blessing, starting cooldown");
         well.BlessWell();
         blessingTextObject.text = coolDownText;
         _blessingInProgress = 3;
