@@ -67,6 +67,7 @@ public class PlayerWaterUI : MonoBehaviour
         }
         else
         {
+            transform.GetComponent<AudioSource>().Play();
             ChangeWater();
             return true;
         }
