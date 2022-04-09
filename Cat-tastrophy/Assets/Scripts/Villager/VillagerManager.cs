@@ -54,7 +54,7 @@ public class VillagerManager : MonoBehaviour
     {
         numberNormalVillagers--;
         villagerCounter.text = (numberImpfgegnerVillager + numberNormalVillagers).ToString();
-        if(numberNormalVillagers <= 0)
+        if(numberNormalVillagers + numberImpfgegnerVillager <= 0)
         {
             gameOver.LostGame(false);
         }
