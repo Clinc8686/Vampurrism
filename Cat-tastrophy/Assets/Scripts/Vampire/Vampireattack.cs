@@ -57,7 +57,6 @@ public class Vampireattack : MonoBehaviour
     {
         if (collidedWithNpc == true && seconds <= catpause) //prepare the countdown, something collided.
         {
-            Debug.Log("colllidedwithnpc=true");
             catpause = 0;
         }
 
