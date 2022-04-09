@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class PriestBlessing : MonoBehaviour
 {
+    [SerializeField] private PlayerUIText priestSpeechBubble;
     public int blessingTime = 5;
     public int blessingCooldown = 100;
     public GameObject blessingBar;
@@ -104,5 +105,7 @@ public class PriestBlessing : MonoBehaviour
         blessingTextObject.text = coolDownText;
         _blessingInProgress = 3;
         StartCoroutine(CoolDownBlessing());
+        priestSpeechBubble.AddText("The well contains now holy water.");
+        priestSpeechBubble.StartShowingText(5.0f);
     }
 }
