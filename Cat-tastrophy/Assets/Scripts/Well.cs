@@ -29,7 +29,7 @@ public class Well : MonoBehaviour
         _isBlessed = false;
         this.gameObject.GetComponent<SpriteRenderer>().sprite = normalWell;
         SparcleParticles.Stop();                      // maja da
-        //SparcleParticles.gameObject.SetActive(false); // maja ah-ah
+        SparcleParticles.gameObject.SetActive(false); // maja ah-ah
     }
 
     //Returns true if the well is blessed and unblesses it
