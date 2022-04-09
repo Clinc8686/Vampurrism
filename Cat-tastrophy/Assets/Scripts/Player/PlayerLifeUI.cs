@@ -48,6 +48,7 @@ public class PlayerLifeUI : MonoBehaviour
     }
     public bool LostLife()
     {
+        Debug.Log("Losing a life " + playerLife);
         playerLife--;
         if (playerLife <= 0)
         {

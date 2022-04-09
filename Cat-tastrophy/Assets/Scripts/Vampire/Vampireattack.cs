@@ -1,13 +1,16 @@
 using UnityEngine;
+using System.Collections;
 
 public class Vampireattack : MonoBehaviour
 {
+    public int attackOverTimeCooldown = 2;
     GameObject villagermanager;
     GameObject Vampiremanager;
     PlayerLifeUI playerLifeUI;  //Von Mario
     bool collidedWithNpc = false;
     float catpause = 0;
     private Vector3 npcPos;
+    private bool _attackedPlayer = false;
     // Update is called once per frame
     void Update()
     {
@@ -22,12 +25,47 @@ public class Vampireattack : MonoBehaviour
         Vampiremanager = GameObject.Find("EnemyManager");
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && !_attackedPlayer)
+        {
+            Debug.Log("KEep colliding with a player");
+            playerLifeUI.LostLife();
+            _attackedPlayer = true;
+            StartCoroutine(AttackCooldown());
+        }
+    }
+
+    IEnumerator AttackCooldown()
+    {
+        yield return new WaitForSeconds(attackOverTimeCooldown);
+        _attackedPlayer = false;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Stopped colliding with a player");
+            _attackedPlayer = false;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Villager"&& collidedWithNpc == false)
+        /*if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("turning a cat into a vampire muahahahah"); // 0 = normal, 1= impf
+            Debug.Log("Collided with a player");
+            GameObject temp = collision.gameObject.transform.parent.gameObject;
+            GameObject temp2 = temp.gameObject.transform.parent.gameObject;
+            playerLifeUI = temp2.GetComponentInChildren<PlayerLifeUI>();
+            playerLifeUI.LostLife();
+            _attackedPlayer = true;
+            StartCoroutine(AttackCooldown());
+        }
+        else*/ if (collision.gameObject.tag == "Villager"&& collidedWithNpc == false)
+        {
+            //Debug.Log("turning a cat into a vampire muahahahah"); // 0 = normal, 1= impf
 
 
             collision.gameObject.SetActive(false);
@@ -39,8 +77,7 @@ public class Vampireattack : MonoBehaviour
             collidedWithNpc = true;
             npcPos = collision.gameObject.GetComponent<Transform>().position;
         }
-   
-        if (collision.gameObject.tag == "imm") //"immune", for now isn't complete
+        else if (collision.gameObject.tag == "imm") //"immune", for now isn't complete
         {
             Debug.Log("Oh no, my bite doesn't work");
 

@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988e0fa8a807cc142aa4ce187e775a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackOverTimeCooldown: 2
 --- !u!114 &-4107072920357301487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,5 +288,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e099bfe221fc04b97fee4fefd47dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifepoints: 2
+  lifepoints: 3
   cooldownseconds: 1
