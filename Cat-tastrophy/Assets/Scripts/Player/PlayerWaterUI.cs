@@ -34,6 +34,7 @@ public class PlayerWaterUI : MonoBehaviour
     {
         waterSpriteImage = UIPlayerWater.GetComponent<Image>();
         ResetWater();
+
     }
 
     public void ResetWater()
@@ -47,6 +48,7 @@ public class PlayerWaterUI : MonoBehaviour
     public void AddWater(int value)
     {
         playerWater += value;
+
         playerUIText.StopShowingText();
         if (playerWater > MAX_PLAYER_WATER)
         {

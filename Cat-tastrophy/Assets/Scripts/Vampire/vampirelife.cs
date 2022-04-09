@@ -22,6 +22,7 @@ public class vampirelife : MonoBehaviour
 
     private void Start()
     {
+        lifes = lifepoints;
         thisvampire = GetComponent<Transform>();
     }
 

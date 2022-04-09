@@ -18397,16 +18397,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3941537699455617387, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 108.337
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941537699455617387, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 96.785034
+      value: 96.785
       objectReference: {fileID: 0}
     - target: {fileID: 3941537699455617387, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 336.2
+      value: 287.1161
       objectReference: {fileID: 0}
     - target: {fileID: 3941537699455617387, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -126
+      value: -125.95999
       objectReference: {fileID: 0}
     - target: {fileID: 3941537700754995973, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
       propertyPath: m_RootOrder
@@ -18478,15 +18482,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3941537701319424102, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 237.78699
+      value: 217.89
       objectReference: {fileID: 0}
     - target: {fileID: 3941537701319424102, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 164.49176
+      value: 124
       objectReference: {fileID: 0}
     - target: {fileID: 3941537701319424102, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -126.00217
+      value: -125.96
       objectReference: {fileID: 0}
     - target: {fileID: 4366608783229974925, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18512,6 +18516,22 @@ PrefabInstance:
       propertyPath: maxNumberVampires
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5825536439799397565, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
+      propertyPath: Vampireprefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5825536439799397565, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
+      propertyPath: Vampireprefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1592722007190137260, guid: f0c737ecee5f11c4d827cc1a66bf4365, type: 3}
+    - target: {fileID: 5825536439799397565, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
+      propertyPath: Vampireprefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1592722007190137260, guid: f606e2b67503b69479a798a663e92b4f, type: 3}
+    - target: {fileID: 5825536439799397565, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
+      propertyPath: Vampireprefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1592722007190137260, guid: 90f39a6d3cac2ce4e9b80e9996905c68, type: 3}
     - target: {fileID: 7222333636690532646, guid: cbf2293685be9cc42a91e5a0ea876372, type: 3}
       propertyPath: m_LocalPosition.x
       value: -51.6
@@ -23201,7 +23221,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 392.5915, y: -49.079987}
+  m_AnchoredPosition: {x: 287, y: -46}
   m_SizeDelta: {x: 105.625, y: 96.785034}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3941537699849327454
@@ -23471,8 +23491,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 169.88837, y: -49.082153}
-  m_SizeDelta: {x: 339.77698, y: 96.784}
+  m_AnchoredPosition: {x: 128.039, y: -46.68921}
+  m_SizeDelta: {x: 212.298, y: 96.784}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3941537700640498257
 MonoBehaviour:
@@ -23507,7 +23527,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Dorfbewohner:'
+  m_Text: 'Villagers:'
 --- !u!222 &3941537700640498258
 CanvasRenderer:
   m_ObjectHideFlags: 0

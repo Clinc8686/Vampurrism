@@ -377,7 +377,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174a5ec18b960d5438b88acbd0a6c5a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Vampireprefab: {fileID: 1592722007190137260, guid: f0c737ecee5f11c4d827cc1a66bf4365, type: 3}
+  Vampireprefabs:
+  - {fileID: 1592722007190137260, guid: f0c737ecee5f11c4d827cc1a66bf4365, type: 3}
+  - {fileID: 1592722007190137260, guid: f606e2b67503b69479a798a663e92b4f, type: 3}
+  - {fileID: 1592722007190137260, guid: 90f39a6d3cac2ce4e9b80e9996905c68, type: 3}
   Vampirecounter: {fileID: 3941537699455617384}
   villagerParent: {fileID: 3941537700223249632}
   numberVampires: 1

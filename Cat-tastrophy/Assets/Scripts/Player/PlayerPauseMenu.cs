@@ -5,18 +5,17 @@ using UnityEngine.SceneManagement;
 public class PlayerPauseMenu : MonoBehaviour
 {
     public GameObject pauseCanvas;
-    public GameObject villagerManager;
-    public GameObject enemyManager;
-    public GameObject otherCanvas1;
-    public GameObject otherCanvas2;
+    public GameObject optionsScreen;
 
     private bool _isMenuActive = false;
     private float _fixedDeltaTime;
+    private PlayerMovement _movement;
 
     // Start is called before the first frame update
     void Start()
     {
         this._fixedDeltaTime = Time.fixedDeltaTime;
+        _movement = this.gameObject.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -34,6 +33,7 @@ public class PlayerPauseMenu : MonoBehaviour
     private void OpenCloseMenu()
     {
         pauseCanvas.SetActive(_isMenuActive);
+        _movement.SetPauseMenuOpen(_isMenuActive);
         if (_isMenuActive)
         {
             Time.timeScale = 0f;
@@ -56,5 +56,16 @@ public class PlayerPauseMenu : MonoBehaviour
         Debug.Log("Button clicked");
         _isMenuActive = !_isMenuActive;
         OpenCloseMenu();
+    }
+
+    public void OnOptionsClicked()
+    {
+        optionsScreen.SetActive(true);
+    }
+
+    //Hide the Credits when clicked on "Zurück"
+    public void OnBackClicked()
+    {
+        optionsScreen.SetActive(false);
     }
 }
