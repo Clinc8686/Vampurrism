@@ -34,6 +34,8 @@ public class PriestSpeechBubble : MonoBehaviour
     {
         StopCoroutine("CoroutineShowPriestText");
         coroutineIsRunning = false;
+        UIText.color = new Color(UIText.color.r, UIText.color.g, UIText.color.b, 0);
+        speechBubble.enabled = false;
     }
 
     IEnumerator CoroutineShowPriestText()

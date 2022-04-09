@@ -34,6 +34,8 @@ public class PlayerUIText : MonoBehaviour
     {
         StopCoroutine("CoroutineShowText");
         coroutineIsRunning = false;
+        speechBubble.enabled = false;
+        UIText.color = new Color(UIText.color.r, UIText.color.g, UIText.color.b, 0);
     }
 
     IEnumerator CoroutineShowText()
@@ -41,7 +43,9 @@ public class PlayerUIText : MonoBehaviour
         coroutineIsRunning = true;
         speechBubble.enabled = true;
         UIText.color = new Color(UIText.color.r, UIText.color.g, UIText.color.b, 1);
+        Debug.Log("start");
         yield return new WaitForSeconds(showTime);
+        Debug.Log("stop");
         UIText.color = new Color(UIText.color.r, UIText.color.g, UIText.color.b, 0);
         speechBubble.enabled = false;
         coroutineIsRunning = false;
