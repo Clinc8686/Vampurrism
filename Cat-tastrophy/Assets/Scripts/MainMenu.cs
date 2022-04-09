@@ -40,12 +40,6 @@ public class MainMenu : MonoBehaviour
     //Close the game when clicked on "Beenden"
     public void OnCloseClicked()
     {
-        StartCoroutine(TestQuit());
-    }
-
-    IEnumerator TestQuit()
-    {
-        yield return new WaitForSeconds(1);
         Application.Quit();
     }
 
