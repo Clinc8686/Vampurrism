@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private bool pickUpFood = false;
     private bool rotated = false;
     private bool moving = false;
+    private bool pauseMenuOpen = false;
     public Animator animator;
     private DateTime oldTime;
 
@@ -54,8 +55,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void SetPauseMenuOpen(bool open)
+    {
+        pauseMenuOpen = open;
+    }
+
     private void OnMove(InputValue value)
-    { 
+    {
+        if (pauseMenuOpen) { return; }
         Vector2 input = value.Get<Vector2>();
         if (input.x > 0)
         {
@@ -79,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnVaccinate(InputValue value)
     {
+        if (pauseMenuOpen) { return; }
         if (playerVaccineUI.LostVaccine())
         {
             playerShooting.ShootVaccine();
@@ -87,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnSprayWater(InputValue value)
     {
+        if (pauseMenuOpen) { return; }
         if (playerWaterUI.LostWater())
         {
             playerShooting.ShootWater();
@@ -159,6 +168,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnInteraction()
     {
+        if(pauseMenuOpen) { return; }
         if (refill)
         {
             bool canRefill = well.GetComponent<Well>().GetBlessedWater();

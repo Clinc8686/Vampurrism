@@ -9,11 +9,13 @@ public class PlayerPauseMenu : MonoBehaviour
 
     private bool _isMenuActive = false;
     private float _fixedDeltaTime;
+    private PlayerMovement _movement;
 
     // Start is called before the first frame update
     void Start()
     {
         this._fixedDeltaTime = Time.fixedDeltaTime;
+        _movement = this.gameObject.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class PlayerPauseMenu : MonoBehaviour
     private void OpenCloseMenu()
     {
         pauseCanvas.SetActive(_isMenuActive);
+        _movement.SetPauseMenuOpen(_isMenuActive);
         if (_isMenuActive)
         {
             Time.timeScale = 0f;
