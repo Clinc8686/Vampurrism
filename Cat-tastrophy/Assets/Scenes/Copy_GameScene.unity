@@ -41086,7 +41086,7 @@ MonoBehaviour:
   foodParent: {fileID: 3941537699448873951}
   numberNormalVillagers: 10
   numberImpfgegnerVillager: 3
-  gameOver: {fileID: 0}
+  gameOver: {fileID: 658919935}
 --- !u!4 &3941537700043721011
 Transform:
   m_ObjectHideFlags: 0
