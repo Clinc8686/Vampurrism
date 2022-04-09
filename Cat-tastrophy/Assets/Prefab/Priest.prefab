@@ -172,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalWell: {fileID: 21300000, guid: 30a0e937b7c149e4da6768f6bb925d2b, type: 3}
   blessedWell: {fileID: 21300000, guid: 8d85163bb31dd434d8621644c9ef6bf1, type: 3}
-  wellStaysBlessedTime: 5
+  wellStaysBlessedTime: 10
 --- !u!70 &1527390015690940121
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -314,8 +314,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000022888, y: 68.691}
-  m_SizeDelta: {x: 331.052, y: 87.017}
+  m_AnchoredPosition: {x: -0.0000076294, y: 69.4}
+  m_SizeDelta: {x: 394.758, y: 87.017}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3960957431476951259
 CanvasRenderer:
@@ -358,7 +358,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Am Weihen...
+  m_Text: 
 --- !u!1 &3960957431729321018
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,8 +736,8 @@ MonoBehaviour:
   blessingBar: {fileID: 3960957432320634906}
   blessingTextObject: {fileID: 3960957431476951258}
   blessingBarRect: {fileID: 3960957430671733231}
-  coolDownText: Am Beten...
-  blessingText: Am Weihen...
+  coolDownText: Gathering faith...
+  blessingText: Blessing well...
   well: {fileID: 3960957430490784193}
 --- !u!61 &3960957432507644363
 BoxCollider2D:
