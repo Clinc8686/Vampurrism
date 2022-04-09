@@ -68,6 +68,16 @@ public class MainMenu : MonoBehaviour
         creditsScreen.SetActive(true);
     }
 
+    public void OnHowToPlayClicked()
+    {
+        howToPlayScreen.SetActive(true);
+    }
+
+    public void OnOptionsClicked()
+    {
+        optionsScreen.SetActive(true);
+    }
+
     //Hide the Credits when clicked on "Zurück"
     public void OnBackClicked()
     {

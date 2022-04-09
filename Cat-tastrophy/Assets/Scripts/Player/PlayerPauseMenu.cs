@@ -5,10 +5,7 @@ using UnityEngine.SceneManagement;
 public class PlayerPauseMenu : MonoBehaviour
 {
     public GameObject pauseCanvas;
-    public GameObject villagerManager;
-    public GameObject enemyManager;
-    public GameObject otherCanvas1;
-    public GameObject otherCanvas2;
+    public GameObject optionsScreen;
 
     private bool _isMenuActive = false;
     private float _fixedDeltaTime;
@@ -56,5 +53,16 @@ public class PlayerPauseMenu : MonoBehaviour
         Debug.Log("Button clicked");
         _isMenuActive = !_isMenuActive;
         OpenCloseMenu();
+    }
+
+    public void OnOptionsClicked()
+    {
+        optionsScreen.SetActive(true);
+    }
+
+    //Hide the Credits when clicked on "Zurück"
+    public void OnBackClicked()
+    {
+        optionsScreen.SetActive(false);
     }
 }
