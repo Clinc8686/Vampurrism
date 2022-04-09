@@ -29,14 +29,12 @@ public class PlayerWaterUI : MonoBehaviour
     [SerializeField] private PlayerUIText playerUIText;
     private int MAX_PLAYER_WATER = 20;
     private Image waterSpriteImage;
-    private GameObject sparcleeffect;
     
     void Start()
     {
         waterSpriteImage = UIPlayerWater.GetComponent<Image>();
         ResetWater();
-        sparcleeffect = GameObject.Find("well particles"); 
-        sparcleeffect.SetActive(false);
+
     }
 
     public void ResetWater()
@@ -50,7 +48,7 @@ public class PlayerWaterUI : MonoBehaviour
     public void AddWater(int value)
     {
         playerWater += value;
-        sparcleeffect.SetActive(false);
+
         playerUIText.StopShowingText();
         if (playerWater > MAX_PLAYER_WATER)
         {
