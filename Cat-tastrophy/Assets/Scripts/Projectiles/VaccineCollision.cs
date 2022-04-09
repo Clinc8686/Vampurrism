@@ -10,7 +10,7 @@ public class VaccineCollision : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("Alarm: " + col.name + "  " + col.tag);
-        if (col.CompareTag("Enemy"))
+        if (col.CompareTag("Enemy") || col.CompareTag("Building"))
         {
             Destroy(vaccinePrefab);
         }
