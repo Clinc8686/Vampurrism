@@ -56,6 +56,7 @@ public class PlayerVaccineUI : MonoBehaviour
         }
         else
         {
+            transform.GetComponent<AudioSource>().Play();
             ChangeVaccine();
             return true;
         }
