@@ -22836,6 +22836,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 379202899505851445, guid: 43dda7b318ba0b94e8d172102dfbbf78, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3960957430490784195, guid: 43dda7b318ba0b94e8d172102dfbbf78, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -22910,6 +22914,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3960957432507644366, guid: 43dda7b318ba0b94e8d172102dfbbf78, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6717326128360082286, guid: 43dda7b318ba0b94e8d172102dfbbf78, type: 3}
+      propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -40967,7 +40975,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -790.11163, y: 490.91785}
+  m_AnchoredPosition: {x: -844.1, y: 490.91785}
   m_SizeDelta: {x: 339.777, y: 96.784}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3941537699480013393
@@ -41003,7 +41011,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Dorfbewohner:'
+  m_Text: 'Villagers:'
 --- !u!222 &3941537699480013394
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -41511,7 +41519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -567.4085, y: 490.92}
+  m_AnchoredPosition: {x: -621.39685, y: 490.92}
   m_SizeDelta: {x: 105.625, y: 96.785}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3941537701277858654

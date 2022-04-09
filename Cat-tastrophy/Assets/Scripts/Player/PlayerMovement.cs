@@ -129,25 +129,6 @@ public class PlayerMovement : MonoBehaviour
             }
             foodEnterCounter++;
         }
-        
-        if (col.CompareTag("Enemy"))
-        {
-            playerLifeUI.LostLife();
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D col)
-    {
-        DateTime now = DateTime.Now;
-        TimeSpan difference = now.Subtract(oldTime);
-        if (difference.TotalSeconds > 1)
-        {
-            if (col.CompareTag("Enemy"))
-            {
-                playerLifeUI.LostLife();
-            }
-            oldTime = DateTime.Now;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D col)
