@@ -4739,6 +4739,7 @@ MonoBehaviour:
   playerWaterUI: {fileID: 6423106938415344689}
   playerLifeUI: {fileID: 3981918474026597085}
   playerShooting: {fileID: 8297380211462286218}
+  attackOverTimeCooldown: 0.3
   animator: {fileID: 2272380818298692851}
 --- !u!114 &8297380211462286218
 MonoBehaviour:

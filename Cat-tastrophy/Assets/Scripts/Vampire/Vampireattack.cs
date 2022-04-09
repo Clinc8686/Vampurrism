@@ -3,14 +3,12 @@ using System.Collections;
 
 public class Vampireattack : MonoBehaviour
 {
-    public int attackOverTimeCooldown = 2;
     GameObject villagermanager;
     GameObject Vampiremanager;
     PlayerLifeUI playerLifeUI;  //Von Mario
     bool collidedWithNpc = false;
     float catpause = 0;
     private Vector3 npcPos;
-    private bool _attackedPlayer = false;
     // Update is called once per frame
     void Update()
     {
@@ -23,34 +21,6 @@ public class Vampireattack : MonoBehaviour
     {
         villagermanager = GameObject.Find("VillagerManager");
         Vampiremanager = GameObject.Find("EnemyManager");
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player" && !_attackedPlayer)
-        {
-            GameObject temp = collision.gameObject.transform.parent.gameObject;
-            GameObject temp2 = temp.gameObject.transform.parent.gameObject;
-            playerLifeUI = temp2.GetComponentInChildren<PlayerLifeUI>();
-            playerLifeUI.LostLife();
-            _attackedPlayer = true;
-            StartCoroutine(AttackCooldown());
-        }
-    }
-
-    IEnumerator AttackCooldown()
-    {
-        yield return new WaitForSeconds(attackOverTimeCooldown);
-        _attackedPlayer = false;
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            StopAllCoroutines();
-            _attackedPlayer = false;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
