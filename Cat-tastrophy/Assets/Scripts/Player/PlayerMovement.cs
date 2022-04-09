@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 { 
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerWaterUI playerWaterUI;
     [SerializeField] private PlayerLifeUI playerLifeUI;
     [SerializeField] private PlayerShooting playerShooting;
+    [SerializeField] private float attackOverTimeCooldown = 2;
     private GameObject well;
     private List<GameObject> foodList;
     private GameObject priest;
@@ -24,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private bool rotated = false;
     private bool moving = false;
     private bool pauseMenuOpen = false;
+    private bool _gettingAttacked = false;
     public Animator animator;
     private DateTime oldTime;
 
@@ -129,6 +132,28 @@ public class PlayerMovement : MonoBehaviour
                 foodList.Add(col.gameObject);
             }
             foodEnterCounter++;
+        }
+        if (col.CompareTag("Enemy") && !_gettingAttacked)
+        {
+            playerLifeUI.LostLife();
+            _gettingAttacked = true;
+            StartCoroutine(AttackCooldown());
+        }
+    }
+
+    IEnumerator AttackCooldown()
+    {
+        yield return new WaitForSeconds(attackOverTimeCooldown);
+        _gettingAttacked = false;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy" && !_gettingAttacked)
+        {
+            playerLifeUI.LostLife();
+            _gettingAttacked = true;
+            StartCoroutine(AttackCooldown());
         }
     }
 
