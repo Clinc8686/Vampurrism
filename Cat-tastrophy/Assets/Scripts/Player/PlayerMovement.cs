@@ -27,10 +27,16 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     private DateTime oldTime;
 
+
+    private GameObject sparcleeffect;
+
     void Start()
     {
         animator = body.GetComponent<Animator>();
         foodList = new List<GameObject>();
+
+        sparcleeffect = GameObject.Find("well particles");
+        sparcleeffect.SetActive(false);
     }
 
     void FixedUpdate()
@@ -175,6 +181,8 @@ public class PlayerMovement : MonoBehaviour
             if(!canRefill) { return; }
             playerWaterUI.ResetWater();
             playerVaccineUI.ResetVaccine();
+
+            sparcleeffect.SetActive(false);
         }
         else if (rebless)
         {
