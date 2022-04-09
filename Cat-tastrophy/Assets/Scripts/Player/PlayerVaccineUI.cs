@@ -49,7 +49,7 @@ public class PlayerVaccineUI : MonoBehaviour
         if (playerVaccine < 0)
         {
             playerVaccine = 0;
-            playerUIText.AddText("Go to the priest to refill your holy Water!");
+            playerUIText.AddText("Go to the priest to refill your holy water!");
             playerUIText.StartShowingText(5.0f);
             ChangeVaccine();
             return false;

@@ -49,7 +49,6 @@ public class VillagerImmunisation : MonoBehaviour
 
     public void SetGeimpft()
     {
-        Debug.Log("Impfstatus: " + _immune);
         if(_immune == 0)
         {
             _immune = 1;
@@ -75,7 +74,6 @@ public class VillagerImmunisation : MonoBehaviour
                 {
                     StartCoroutine(AgainstImmunity());
                 }
-                Debug.Log("Collision Angle: " + degrees + ", direction: " + gameObject.GetComponent<VillagerMovement>().GetDirection());
             }
             SetGeimpft();
             Destroy(collision.gameObject);
