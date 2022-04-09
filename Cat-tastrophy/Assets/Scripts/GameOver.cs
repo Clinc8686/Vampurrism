@@ -30,6 +30,10 @@ public class GameOver : MonoBehaviour
         if(_isGameOver) { return; }
         _isGameOver = true;
         gameOverCanvas.SetActive(true);
+        _movement.SetPauseMenuOpen(_isGameOver);
+        float _fixedDeltaTime = Time.fixedDeltaTime;
+        Time.timeScale = 0f;
+        Time.fixedDeltaTime = _fixedDeltaTime * Time.timeScale;
         _movement.enabled = false;
         _shooting.enabled = false;
         _pauseMenu.enabled = false;
