@@ -11,11 +11,12 @@ public class PlayerPauseMenu : MonoBehaviour
     public GameObject otherCanvas2;
 
     private bool _isMenuActive = false;
+    private float _fixedDeltaTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        this._fixedDeltaTime = Time.fixedDeltaTime;
     }
 
     // Update is called once per frame
@@ -33,10 +34,15 @@ public class PlayerPauseMenu : MonoBehaviour
     private void OpenCloseMenu()
     {
         pauseCanvas.SetActive(_isMenuActive);
-        otherCanvas1.SetActive(!_isMenuActive);
-        otherCanvas2.SetActive(!_isMenuActive);
-        villagerManager.SetActive(!_isMenuActive);
-        enemyManager.SetActive(!_isMenuActive);
+        if (_isMenuActive)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
+        Time.fixedDeltaTime = this._fixedDeltaTime * Time.timeScale;
     }
 
     public void OnBackToMainMenuClicked()

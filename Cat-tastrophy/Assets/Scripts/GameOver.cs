@@ -42,9 +42,15 @@ public class GameOver : MonoBehaviour
             deathCauseText.text = "You lost all your villagers!";
         }
  
-        int i = vampireManager.GetNumberVampiresKilled();
-        int number = highScore.AddScore(i);
-        scoreText.text = i.ToString() + " Vampires";
+        int l = vampireManager.GetNumberVampiresKilled();
+        int number = highScore.AddScore(l);
+        scoreText.text = l.ToString() + " Vampires";
+        for (int i = 0; i < highScore.scoreList.Length; i++)
+        {
+            int score = highScore.scoreList[i];
+            PlayerPrefs.SetInt(i.ToString(), score);
+        }
+        PlayerPrefs.Save();
         RefreshHighscores(number);
     }
 
