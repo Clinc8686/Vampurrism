@@ -229,7 +229,7 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
-    m_RichText: 1
+    m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIText: {fileID: 1285483599883165071}
+  speechBubble: {fileID: 6309475669461297989}
 --- !u!1 &173038453535669927
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class PlayerVaccineUI : MonoBehaviour
     [SerializeField] private GameObject UIPlayerVaccine;
     private int playerVaccine;
     [SerializeField] private PlayerUIText playerUIText;
-    private int MAX_PLAYER_VACCINE = 10;
+    private const int MAX_PLAYER_VACCINE = 10;
     private Image vaccineSpriteImage;
     
     void Start()
@@ -45,6 +45,7 @@ public class PlayerVaccineUI : MonoBehaviour
     }
     public bool LostVaccine()
     {
+        Debug.Log("Vaccine count: " + playerVaccine);
         playerVaccine--;
         if (playerVaccine < 0)
         {

@@ -62,7 +62,7 @@ public class PlayerWaterUI : MonoBehaviour
         if (playerWater < 0)
         {
             playerWater = 0;
-            playerUIText.AddText("Go to the priest to refill your holy Water!");
+            playerUIText.AddText("Go to the priest to refill your holy water!");
             playerUIText.StartShowingText(5.0f);
             ChangeWater();
             return false;

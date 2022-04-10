@@ -8,10 +8,9 @@ public class PriestSpeechBubble : MonoBehaviour
     [SerializeField] private Text UIText;
     private float showTime;
     private bool coroutineIsRunning = false;
-    private Image speechBubble;
+    [SerializeField] private Image speechBubble;
     private void Start()
     {
-        speechBubble = transform.parent.gameObject.GetComponent<Image>();
         speechBubble.enabled = false;
         UIText.color = new Color(UIText.color.r, UIText.color.g, UIText.color.b, 0);
     }
